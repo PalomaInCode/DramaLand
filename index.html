@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DramaLand</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS -->
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">DramaLand</a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Início</a></li>
+                <li><a href="#">Em Alta</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li>
+                    <a href="#">Categorias</a>
+                    <div class="dropdown">
+                        <a href="#">Romance</a>
+                        <a href="#">Comédia</a>
+                        <a href="#">Ação</a>
+                        <a href="#">Fantasia</a>
+                        <a href="#">Drama</a>
+                        <a href="#">Mistério</a>
+                        <a href="#">Thriller</a>
+                        <a href="#">Histórico</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                    <div class="dropdown">
+                        <a href="#">Postagem 1</a>
+                        <a href="#">Postagem 2</a>
+                        <a href="#">Postagem 3</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Notícias</a>
+                    <div class="dropdown">
+                        <a href="#">Notícia 1</a>
+                        <a href="#">Notícia 2</a>
+                        <a href="#">Notícia 3</a>
+                    </div>
+                </li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2 id="text">DramaLand</h2>
+        <a href="#" id="btn">Explore</a>
+    </section>
+    <div class="sec">
+        <h2>O que é dorama?</h2>
+        <p>Doramas sul-coreanos, conhecidos como K-dramas, são séries populares que cobrem gêneros variados como romance, comédia, ação e fantasia. Com temporadas curtas e episódios entre 30 a 60 minutos, os K-dramas exploram temas universais, como amor, amizade e crescimento pessoal, e são famosos por sua abordagem emotiva e envolvente.</p>
+    </div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const text = document.getElementById('text');
+
+        window.addEventListener('scroll', function() {
+            const textRect = text.getBoundingClientRect();
+
+            // Verifica se o título está fora da tela
+            if (textRect.bottom < 0) {
+                btn.classList.add('fixed'); // Adiciona a classe para fixar o botão
+            } else {
+                btn.classList.remove('fixed'); // Remove a classe se o título estiver visível
+            }
+        });
+    </script>
+</body>
+</html>

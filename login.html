@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style_cl.css"> <!-- Link para o seu CSS -->
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">DramaLand</a>
+    </header>
+
+    <div class="form-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="loginEmail">E-mail:</label>
+                <input type="email" id="loginEmail" required>
+            </div>
+            <div class="input-group">
+                <label for="loginPassword">Senha:</label>
+                <input type="password" id="loginPassword" required>
+            </div>
+            <button type="submit">Entrar</button>
+            <div class="error-message" id="loginError"></div>
+        </form>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            if (!validateEmail(email)) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('A senha deve ter pelo menos 6 caracteres.');
+                return;
+            }
+
+            alert('Login bem-sucedido!');
+            // Aqui você pode enviar os dados para o servidor
+        });
+    </script>
+</body>
+</html>

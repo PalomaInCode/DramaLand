@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style_cl.css"> <!-- Link para o seu CSS -->
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">DramaLand</a>
+    </header>
+
+    <div class="form-container">
+        <h2>Cadastro</h2>
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="registerEmail">E-mail:</label>
+                <input type="email" id="registerEmail" required>
+            </div>
+            <div class="input-group">
+                <label for="registerPassword">Senha:</label>
+                <input type="password" id="registerPassword" required>
+            </div>
+            <div class="input-group">
+                <label for="confirmPassword">Confirmar Senha:</label>
+                <input type="password" id="confirmPassword" required>
+            </div>
+            <button type="submit">Cadastrar</button>
+            <div class="error-message" id="registerError"></div>
+        </form>
+    </div>
+
+    <script>
+        const registerForm = document.getElementById('registerForm');
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        registerForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (!validateEmail(email)) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+
+            if (password.length < 6) {
+                alert('A senha deve ter pelo menos 6 caracteres.');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem.');
+                return;
+            }
+
+            alert('Cadastro bem-sucedido!');
+            // Aqui você pode enviar os dados para o servidor
+        });
+    </script>
+</body>
+</html>

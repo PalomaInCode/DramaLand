@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Usar a fonte Poppins como padrão */
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(#ffffff, #f8f9fa); /* Degradê de branco */
+    color: #333; /* Texto em cinza escuro */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco semitransparente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background 0.3s ease; /* Transição suave para o fundo do header */
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 1); /* Muda o fundo quando rolar a página */
+}
+
+header .logo {
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #e91e63; /* Rosa */
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+}
+
+header ul li {
+    list-style: none;
+    margin-left: 20px;
+    position: relative; /* Necessário para o posicionamento do dropdown */
+}
+
+header ul li a {
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #333; /* Texto em cinza escuro */
+    border-radius: 20px;
+    transition: background 0.3s ease, color 0.3s ease; /* Transições suaves */
+}
+
+header ul li a:hover,
+header ul li a.active {
+    background: #e91e63; /* Rosa */
+    color: white; /* Texto branco ao passar o mouse */
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px); /* Altura da seção, subtraindo o header */
+    display: flex;
+    flex-direction: column; /* Permite empilhar o texto e o botão verticalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
+}
+
+#text {
+    position: relative; /* Ajustado para permitir o espaçamento */
+    color: #e91e63; /* Rosa */
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index: 9;
+    margin-bottom: 20px; /* Espaço entre o título e o botão */
+}
+
+#btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #e91e63; /* Rosa */
+    color: white; /* Texto branco */
+    font-size: 1.5em;
+    z-index: 9;
+    transition: background 0.3s ease; /* Transição suave para o botão */
+}
+
+#btn:hover {
+    background: #d81b60; /* Tom mais escuro de rosa ao passar o mouse */
+}
+
+.sec {
+    position: relative;
+    padding: 100px;
+    background: #f8f9fa; /* Fundo claro */
+    text-align: center;
+}
+
+.sec h2 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #e91e63; /* Rosa */
+}
+
+.sec p {
+    font-size: 1em;
+    color: #333; /* Texto em cinza escuro */
+}
+
+/* Estilos para o menu dropdown */
+.dropdown {
+    display: none; /* Oculta o dropdown por padrão */
+    position: absolute; /* Posiciona o dropdown */
+    top: 100%; /* Alinha com a parte inferior do item do menu */
+    left: 0;
+    background: white; /* Fundo branco do dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra do dropdown */
+    z-index: 1000; /* Garante que o dropdown fique acima de outros elementos */
+}
+
+header ul li:hover .dropdown {
+    display: block; /* Exibe o dropdown ao passar o mouse sobre o item do menu */
+}
+
+.dropdown a {
+    padding: 10px 15px; /* Espaçamento interno dos itens do dropdown */
+    display: block; /* Faz com que os links ocupem toda a largura */
+    color: #333333; /* Cor do texto no dropdown */
+    transition: background 0.3s ease; /* Transição suave para o fundo */
+}
+
+.dropdown a:hover {
+    background: #e91e62a4; /* Cor de fundo ao passar o mouse sobre o item do dropdown */
+}
+
+/* Animação do texto */
+@keyframes slide-in {
+    from {
+        right: -350px; /* Começa fora da tela */
+        opacity: 0; /* Invisível no início */
+    }
+    to {
+        right: 50%; /* Posição final (ajuste conforme necessário) */
+        opacity: 1; /* Totalmente visível no final */
+        transform: translateX(50%); /* Centraliza o texto */
+    }
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 50px; /* Reduz o padding em telas menores */
+    }
+    
+    header .logo {
+        font-size: 1.5em; /* Reduz o tamanho da logo */
+    }
+
+    #text {
+        font-size: 10vw; /* Ajusta o tamanho da fonte em telas menores */
+    }
+
+    .sec h2 {
+        font-size: 2.5em; /* Ajusta o tamanho do título */
+    }
+}
