@@ -35,7 +35,7 @@ header.scrolled {
 header .logo {
     font-weight: 700;
     text-decoration: none;
-    font-size: 2em;
+    font-size: 2.5em; /* Tamanho consolidado da logo */
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #e91e63; /* Rosa */
@@ -57,6 +57,7 @@ header ul li a {
     padding: 6px 15px;
     color: #333; /* Texto em cinza escuro */
     border-radius: 20px;
+    font-size: 1.2em; /* Aumenta o tamanho da fonte da navbar */
     transition: background 0.3s ease, color 0.3s ease; /* Transições suaves */
 }
 
@@ -116,7 +117,9 @@ section {
 }
 
 .sec p {
-    font-size: 1em;
+    align-items: center;
+    padding: 0vw 14vw 0vw 14vw;
+    font-size: 1.0vw;
     color: #333; /* Texto em cinza escuro */
 }
 
@@ -129,10 +132,16 @@ section {
     background: white; /* Fundo branco do dropdown */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra do dropdown */
     z-index: 1000; /* Garante que o dropdown fique acima de outros elementos */
+    opacity: 0; /* Inicia invisível */
+    visibility: hidden; /* Inicia invisível */
+    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Transição para a opacidade e visibilidade */
 }
 
 header ul li:hover .dropdown {
     display: block; /* Exibe o dropdown ao passar o mouse sobre o item do menu */
+    opacity: 1; /* Torna o dropdown visível */
+    visibility: visible; /* Torna o dropdown visível */
+    transition: opacity 0.3s ease, visibility 0s 0s; /* Transição para a opacidade e visibilidade */
 }
 
 .dropdown a {
