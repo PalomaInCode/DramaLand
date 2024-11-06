@@ -4,13 +4,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Usar a fonte Poppins como padrão */
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     min-height: 100vh;
-    background: linear-gradient(#ffffff, #f8f9fa); /* Degradê de branco */
-    color: #333; /* Texto em cinza escuro */
+    background: linear-gradient(#ffffff, #f8f9fa);
+    color: #333;
 }
 
 header {
