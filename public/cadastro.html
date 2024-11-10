@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style_cl.css">
+</head>
+<body>
+    <header>
+        <a href="index.html"><img class="logo" src="logo.png"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="em-alta.html">Em Alta</a></li>
+                <li>
+                    <a href="categorias.html">Categorias</a>
+                    <div class="dropdown">
+                        <a href="#">Romance</a>
+                        <a href="#">Comédia</a>
+                        <a href="#">Ação</a>
+                        <a href="#">Fantasia</a>
+                        <a href="#">Drama</a>
+                        <a href="#">Mistério</a>
+                        <a href="#">Thriller</a>
+                        <a href="#">Histórico</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="comunidade.html">Comunidade</a>
+                    <div class="dropdown">
+                        <a href="#"></a>
+                        <a href="#">Quiz</a>
+                        <a href="#">Fórum</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="noticias.html">Notícias</a>
+                    <div class="dropdown">
+                        <a href="#">Notícia 1</a>
+                        <a href="#">Notícia 2</a>
+                        <a href="#">Notícia 3</a>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+                <li><a href="signup.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header> 
+    <div class="form-container">
+        <h2>Cadastro</h2>
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="registerEmail">E-mail:</label>
+                <input type="email" id="registerEmail" required>
+                <div class="status-message" id="emailStatus"></div>
+            </div>
+            <div class="input-group">
+                <label for="registerPassword">Senha:</label>
+                <input type="password" id="registerPassword" required>
+                <div class="status-message" id="passwordStatus"></div>
+            </div>
+            <div class="input-group">
+                <label for="confirmPassword">Confirmar Senha:</label>
+                <input type="password" id="confirmPassword" required>
+                <div class="status-message" id="confirmPasswordStatus"></div>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio do formulário até a validação ser feita
+
+            // Resetar as mensagens de erro e sucesso
+            document.getElementById('emailStatus').innerText = '';
+            document.getElementById('passwordStatus').innerText = '';
+            document.getElementById('confirmPasswordStatus').innerText = '';
+
+            // Resetar bordas dos campos
+            document.getElementById('registerEmail').style.borderColor = '';
+            document.getElementById('registerPassword').style.borderColor = '';
+            document.getElementById('confirmPassword').style.borderColor = '';
+
+            // Obter os valores dos campos
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            let valid = true;
+
+            // Validar e-mail
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!email.match(emailPattern)) {
+                document.getElementById('emailStatus').innerText = 'Por favor, insira um e-mail válido.';
+                document.getElementById('registerEmail').style.borderColor = 'red';
+                valid = false;
+            } else {
+                document.getElementById('emailStatus').innerText = 'E-mail válido!';
+                document.getElementById('emailStatus').classList.add('success-message');
+                document.getElementById('registerEmail').style.borderColor = 'green';
+            }
+
+            // Validar senha
+            const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!password.match(passwordPattern)) {
+                document.getElementById('passwordStatus').innerText = 'A senha deve ter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial.';
+                document.getElementById('registerPassword').style.borderColor = 'red';
+                valid = false;
+            } else {
+                document.getElementById('passwordStatus').innerText = 'Senha válida!';
+                document.getElementById('passwordStatus').classList.add('success-message');
+                document.getElementById('registerPassword').style.borderColor = 'green';
+            }
+
+            // Validar confirmar senha
+            if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordStatus').innerText = 'As senhas não coincidem.';
+                document.getElementById('confirmPassword').style.borderColor = 'red';
+                valid = false;
+            } else {
+                document.getElementById('confirmPasswordStatus').innerText = 'Senhas coincidem!';
+                document.getElementById('confirmPasswordStatus').classList.add('success-message');
+                document.getElementById('confirmPassword').style.borderColor = 'green';
+            }
+
+            // Enviar o formulário se tudo estiver válido
+            if (valid) {
+                // Armazenar no LocalStorage
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userPassword', password);
+                alert('Cadastro realizado com sucesso!');
+                // Redirecionar para a página de login
+                window.location.href = 'login.html'; // Exemplo de redirecionamento
+            }
+        });
+    </script>
+</body>
+</html>
