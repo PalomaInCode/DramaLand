@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DramaLand</title>
-    <link rel="stylesheet" href="style.css">
+    <title>DramaLand - Sua Plataforma de Doramas</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <a href="index.html"><img class="logo" src="logo.png"></a>
+        <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
         <nav>
             <ul>
                 <li><a href="#">Início</a></li>
@@ -29,7 +29,6 @@
                 <li>
                     <a href="#">Comunidade</a>
                     <div class="dropdown">
-                        <a href="#"></a>
                         <a href="#">Quiz</a>
                         <a href="#">Fórum</a>
                     </div>
@@ -44,36 +43,94 @@
                 </li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="login.html" class="active">Login</a></li>
-                <li><a href="signup.html">Cadastro</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
             </ul>
         </nav>
     </header>
-    <section>
-        <h2 id="text">DramaLand</h2>
-        <a href="#" id="btn">Explore</a>
+
+    <!-- Seção de Introdução -->
+    <section class="intro">
+        <h1>Bem-vindo ao DramaLand!</h1>
+        <p>Explore um mundo repleto de doramas emocionantes, de diferentes gêneros, prontos para te conquistar!</p>
+        <a href="#" id="btn" class="explore-btn">Explore Agora</a>
     </section>
+
+    <!-- Seção de Categorias -->
+    <section class="categorias">
+        <h2>Explore Nossas Categorias</h2>
+        <div class="categorias-lista">
+            <div class="categoria-item">
+                <img src="assets/romance.jpg" alt="Romance">
+                <h3>Romance</h3>
+                <p>Histórias de amor intensas e emocionantes.</p>
+                <a href="#">Veja mais</a>
+            </div>
+            <div class="categoria-item">
+                <img src="assets/comedia.jpg" alt="Comédia">
+                <h3>Comédia</h3>
+                <p>Comédias leves para arrancar boas risadas.</p>
+                <a href="#">Veja mais</a>
+            </div>
+            <div class="categoria-item">
+                <img src="assets/acao.jpg" alt="Ação">
+                <h3>Ação</h3>
+                <p>Adrenalina pura em cenas de ação inesquecíveis.</p>
+                <a href="#">Veja mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção "O que é Dorama?" -->
     <div class="sec">
         <h2>O que é dorama?</h2>
         <p>Doramas sul-coreanos, conhecidos como K-dramas, são séries populares que cobrem gêneros variados como romance, comédia, ação e fantasia. Com temporadas curtas e episódios entre 30 a 60 minutos, os K-dramas exploram temas universais, como amor, amizade e crescimento pessoal, e são famosos por sua abordagem emotiva e envolvente.</p>
     </div>
 
-    <section>
-
-    </section>
-
+    <!-- Seção de Chamada para Ação -->
+        <div class="cta">
+        <h2>Pronto para começar sua jornada pelos Doramas?</h2>
+        <p>Cadastre-se e tenha acesso a todos os conteúdos exclusivos de DramaLand!</p>
+        <a href="cadastro.html" class="cta-button">Cadastre-se</a>
+    </div>
+    
+    <footer>
+        <div class="box_footer_cabecalho">
+            <img src="./assets/logo.png" alt="Dramaland Logo">
+            <div class="box_footer_redes">
+                <div class="img_footer1"></div>
+                <div class="img_footer2"></div>
+                <div class="img_footer3"></div>
+            </div>
+            <div class="div_linha"></div>
+        </div>
+    
+        <div class="box_footer_rodape">
+            <div class="box_footer_contato">
+                <p class="footer_title">Dramaland</p>
+                <p>contato@dramaland.com</p>
+                <p>(11) 12345-6789</p>
+                <br>
+                <p>Rua do Entretenimento, 200 - Centro</p>
+                <p>São Paulo - SP</p>
+                <p>01010100</p>
+                <p>Razão Social: DramaLand Ltda.</p>
+                <p>CNPJ 12.345.678/0001-99</p>
+            </div>
+            <div class="box_footer_termos">
+                <p><a href="#">Política de Privacidade</a></p>
+                <p><a href="#">Termos de Uso</a></p>
+                <a href="./contato.html">Fale Conosco</a>
+            </div>
+            <a class="a_footer" href="./home.html">Voltar ao topo</a>
+        </div>
+    
+        <p class="footer_final">© 2024 Dramaland - Todos os direitos reservados.</p>
+    </footer>
+    
     <script>
-        const btn = document.getElementById('btn');
-        const text = document.getElementById('text');
-
-        window.addEventListener('scroll', function() {
-            const textRect = text.getBoundingClientRect();
-
-            if (textRect.bottom < 0) {
-                btn.classList.add('fixed');
-            } else {
-                btn.classList.remove('fixed'); // Remove a classe se o título estiver visível
-            }
-        });
+        if (window.localStorage.getItem("logado") === "true"){
+            anchorDashboard.href = "./dashboard.html";
+            anchorDashboard.style.display = "block";
+        }
     </script>
-</body>
-</html>
+    
