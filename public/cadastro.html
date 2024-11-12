@@ -54,6 +54,11 @@
         <h2>Cadastro</h2>
         <form id="registerForm">
             <div class="input-group">
+                <label for="registerEmail">Nome:</label>
+                <input type="text" id="registerName" required>
+                <div class="status-message" id="nameStatus"></div>
+            </div>
+            <div class="input-group">
                 <label for="registerEmail">E-mail:</label>
                 <input type="email" id="registerEmail" required>
                 <div class="status-message" id="emailStatus"></div>
@@ -63,79 +68,89 @@
                 <input type="password" id="registerPassword" required>
                 <div class="status-message" id="passwordStatus"></div>
             </div>
-            <div class="input-group">
+          <div class="input-group">
                 <label for="confirmPassword">Confirmar Senha:</label>
                 <input type="password" id="confirmPassword" required>
                 <div class="status-message" id="confirmPasswordStatus"></div>
             </div>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" onclick="cadastrar()">Cadastrar</button>
         </form>
     </div>
+  </body>
+
+    </html>
 
     <script>
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            event.preventDefault();
 
-            const emailStatus = document.getElementById('emailStatus');
-            const passwordStatus = document.getElementById('passwordStatus');
-            const confirmPasswordStatus = document.getElementById('confirmPasswordStatus');
-            const registerEmail = document.getElementById('registerEmail');
-            const registerPassword = document.getElementById('registerPassword');
-            const confirmPassword = document.getElementById('confirmPassword');
-            const email = registerEmail.value;
-            const password = registerPassword.value;
-            const confirmPass = confirmPassword.value;
-            
-            let isValid = true;
+      // Array para armazenar empresas cadastradas para validação de código de ativação 
+      let listaEmpresasCadastradas = [];
+    
+      function cadastrar() {
+        // aguardar();
+    
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = registerName.value;
+        var emailVar = registerEmail.value;
+        var senhaVar = registerPassword.value;
+        var confirmacaoSenhaVar = confirmPassword.value;
+    
+        // Verificando se há algum campo em branco
+        if (
+          nomeVar == "" ||
+          emailVar == "" ||
+          senhaVar == "" ||
+          confirmacaoSenhaVar == ""
+        ) {
+          cardErro.style.display = "block";
+          mensagem_erro.innerHTML =
+            "(Mensagem de erro para todos os campos em branco)";
 
-            // Limpar mensagens anteriores
-            emailStatus.innerText = '';
-            passwordStatus.innerText = '';
-            confirmPasswordStatus.innerText = '';
-
-            // Validação de e-mail
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (!email.match(emailPattern)) {
-                emailStatus.innerText = 'Por favor, insira um e-mail válido.';
-                registerEmail.style.borderColor = 'red';
-                isValid = false;
+          return false;
+        } else {
+          setInterval(sumirMensagem, 5000);
+        }
+    
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar
+          }),
+        })
+          .then(function (resposta) {
+            console.log("resposta: ", resposta);
+    
+            if (resposta.ok) {
+              cardErro.style.display = "block";
+    
+              mensagem_erro.innerHTML =
+                "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+    
+                setTimeout(() => {
+                window.location.href = "./login.html";  // Redireciona para a página de login
+        }, 2000);
+    
+              limparFormulario();
             } else {
-                emailStatus.innerText = 'E-mail válido!';
-                emailStatus.classList.add('success-message');
-                registerEmail.style.borderColor = 'green';
+              throw "Houve um erro ao tentar realizar o cadastro!";
             }
-
-            // Validação de senha
-            const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-            if (!password.match(passwordPattern)) {
-                passwordStatus.innerText = 'A senha deve ter pelo menos 8 caracteres, uma letra maiúscula, um número e um caractere especial.';
-                registerPassword.style.borderColor = 'red';
-                isValid = false;
-            } else {
-                passwordStatus.innerText = 'Senha válida!';
-                passwordStatus.classList.add('success-message');
-                registerPassword.style.borderColor = 'green';
-            }
-
-            // Validação de confirmação de senha
-            if (password !== confirmPass) {
-                confirmPasswordStatus.innerText = 'As senhas não coincidem.';
-                confirmPassword.style.borderColor = 'red';
-                isValid = false;
-            } else {
-                confirmPasswordStatus.innerText = 'Senhas coincidem!';
-                confirmPasswordStatus.classList.add('success-message');
-                confirmPassword.style.borderColor = 'green';
-            }
-
-            // Armazenamento se tudo estiver válido
-            if (isValid) {
-                localStorage.setItem('userEmail', email);
-                localStorage.setItem('userPassword', password);
-                alert('Cadastro realizado com sucesso!');
-                window.location.href = 'login.html';
-            }
-        });
+          })
+          .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+          });
+    
+        return false;
+      }
+    
+      function sumirMensagem() {
+        cardErro.style.display = "none";
+      }
     </script>
-</body>
-</html>

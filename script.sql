@@ -2,15 +2,6 @@ CREATE DATABASE DramaLand;
 
 USE DramaLand;
 
--- Criação da tabela 'usuarios'
-CREATE TABLE usuarios (
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL,
-    data_registro DATETIME
-);
-
 -- Criação da tabela 'dramas'
 CREATE TABLE dramas (
     id_drama INT AUTO_INCREMENT PRIMARY KEY,
@@ -63,4 +54,12 @@ CREATE TABLE classificacoes (
     FOREIGN KEY (id_drama) REFERENCES dramas(id_drama)
 );
 
-SELECT * FROM usuarios;
+-- Criação da tabela 'usuarios'
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+select * from usuarios;

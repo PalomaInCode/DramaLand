@@ -35,6 +35,7 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
+
     if (nome == undefined || email == undefined || senha == undefined) {
         return res.status(400).send("Dados incompletos!");
     }
@@ -44,7 +45,7 @@ function cadastrar(req, res) {
         return res.status(400).send("Formato de email inválido!");
     }
 
-    usuarioModel.verificarEmailExistente(email)
+    usuarioModel.cadastrar(nome, email, senha)
         .then(function (resultadoVerificacao) {
             if (resultadoVerificacao.length > 0) {
                 res.status(400).send("Email já cadastrado.");
