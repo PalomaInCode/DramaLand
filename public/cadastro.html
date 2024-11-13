@@ -1,156 +1,158 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="css/style_cl.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="css/style_cl.css">
 </head>
+
 <body>
-    <header>
-        <a href="index.html">
-            <img class="logo" src="assets/logo.png" alt="Logo">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="em-alta.html">Em Alta</a></li>
-                <li>
-                    <a href="categorias.html">Categorias</a>
-                    <div class="dropdown">
-                        <a href="#">Romance</a>
-                        <a href="#">Comédia</a>
-                        <a href="#">Ação</a>
-                        <a href="#">Fantasia</a>
-                        <a href="#">Drama</a>
-                        <a href="#">Mistério</a>
-                        <a href="#">Thriller</a>
-                        <a href="#">Histórico</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="comunidade.html">Comunidade</a>
-                    <div class="dropdown">
-                        <a href="#">Quiz</a>
-                        <a href="#">Fórum</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="noticias.html">Notícias</a>
-                    <div class="dropdown">
-                        <a href="#">Notícia 1</a>
-                        <a href="#">Notícia 2</a>
-                        <a href="#">Notícia 3</a>
-                    </div>
-                </li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="cadastro.html" class="active">Cadastro</a></li>
-            </ul>
-        </nav>
-    </header> 
+  <header>
+    <a href="index.html">
+      <img class="logo" src="assets/logo.png" alt="Logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="em-alta.html">Em Alta</a></li>
+        <li>
+          <a href="categorias.html">Categorias</a>
+          <div class="dropdown">
+            <a href="#">Romance</a>
+            <a href="#">Comédia</a>
+            <a href="#">Ação</a>
+            <a href="#">Fantasia</a>
+            <a href="#">Drama</a>
+            <a href="#">Mistério</a>
+            <a href="#">Thriller</a>
+            <a href="#">Histórico</a>
+          </div>
+        </li>
+        <li>
+          <a href="comunidade.html">Comunidade</a>
+          <div class="dropdown">
+            <a href="#">Quiz</a>
+            <a href="#">Fórum</a>
+          </div>
+        </li>
+        <li>
+          <a href="noticias.html">Notícias</a>
+          <div class="dropdown">
+            <a href="#">Notícia 1</a>
+            <a href="#">Notícia 2</a>
+            <a href="#">Notícia 3</a>
+          </div>
+        </li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cadastro.html" class="active">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="form-container">
-        <h2>Cadastro</h2>
-        <form id="registerForm">
-            <div class="input-group">
-                <label for="registerEmail">Nome:</label>
-                <input type="text" id="registerName" required>
-                <div class="status-message" id="nameStatus"></div>
-            </div>
-            <div class="input-group">
-                <label for="registerEmail">E-mail:</label>
-                <input type="email" id="registerEmail" required>
-                <div class="status-message" id="emailStatus"></div>
-            </div>
-            <div class="input-group">
-                <label for="registerPassword">Senha:</label>
-                <input type="password" id="registerPassword" required>
-                <div class="status-message" id="passwordStatus"></div>
-            </div>
-          <div class="input-group">
-                <label for="confirmPassword">Confirmar Senha:</label>
-                <input type="password" id="confirmPassword" required>
-                <div class="status-message" id="confirmPasswordStatus"></div>
-            </div>
-            <button type="submit" onclick="cadastrar()">Cadastrar</button>
-        </form>
-    </div>
-  </body>
+  <div class="form-container">
+    <h2>Cadastro</h2>
+    <form id="registerForm">
+      <div class="input-group">
+        <label for="registerEmail">Nome:</label>
+        <input type="text" id="registerName" required>
+        <div class="status-message" id="nameStatus"></div>
+      </div>
+      <div class="input-group">
+        <label for="registerEmail">E-mail:</label>
+        <input type="email" id="registerEmail" required>
+        <div class="status-message" id="emailStatus"></div>
+      </div>
+      <div class="input-group">
+        <label for="registerPassword">Senha:</label>
+        <input type="password" id="registerPassword" required>
+        <div class="status-message" id="passwordStatus"></div>
+      </div>
+      <div class="input-group">
+        <label for="confirmPassword">Confirmar Senha:</label>
+        <input type="password" id="confirmPassword" required>
+        <div class="status-message" id="confirmPasswordStatus"></div>
+      </div>
+      <button onclick="cadastrar()">Cadastrar</button>
+      <div id="div_aguardar" class="loading-div">
+        </img src="./assets/circle-loading.gif" id="loading-gif" />
+      </div>
+    </form>
+  </div>
+</body>
 
-    </html>
+</html>
 
-    <script>
+<script>
 
-      // Array para armazenar empresas cadastradas para validação de código de ativação 
-      let listaEmpresasCadastradas = [];
-    
-      function cadastrar() {
-        // aguardar();
-    
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var nomeVar = registerName.value;
-        var emailVar = registerEmail.value;
-        var senhaVar = registerPassword.value;
-        var confirmacaoSenhaVar = confirmPassword.value;
-    
-        // Verificando se há algum campo em branco
-        if (
-          nomeVar == "" ||
-          emailVar == "" ||
-          senhaVar == "" ||
-          confirmacaoSenhaVar == ""
-        ) {
+  function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nome = registerName.value;
+    var email = registerEmail.value;
+    var senha = registerPassword.value;
+    var confirmacaoSenha = confirmPassword.value;
+
+    // Verificando se há algum campo em branco
+    if (
+      nome == "" ||
+      email == "" ||
+      senha == "" ||
+      confirmacaoSenha == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nome,
+        emailServer: email,
+        senhaServer: senha
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
           cardErro.style.display = "block";
-          mensagem_erro.innerHTML =
-            "(Mensagem de erro para todos os campos em branco)";
 
-          return false;
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location.href = "login.html";  // Redireciona para a página de login
+          }, 2000);
+
+          limparFormulario();
         } else {
-          setInterval(sumirMensagem, 5000);
+          throw "Houve um erro ao tentar realizar o cadastro!";
         }
-    
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            nomeServer: nomeVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar
-          }),
-        })
-          .then(function (resposta) {
-            console.log("resposta: ", resposta);
-    
-            if (resposta.ok) {
-              cardErro.style.display = "block";
-    
-              mensagem_erro.innerHTML =
-                "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-    
-                setTimeout(() => {
-                window.location.href = "./login.html";  // Redireciona para a página de login
-        }, 2000);
-    
-              limparFormulario();
-            } else {
-              throw "Houve um erro ao tentar realizar o cadastro!";
-            }
-          })
-          .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-          });
-    
-        return false;
-      }
-    
-      function sumirMensagem() {
-        cardErro.style.display = "none";
-      }
-    </script>
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
