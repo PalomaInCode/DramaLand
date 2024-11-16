@@ -19,13 +19,13 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1vw 3vw;
+    padding: 0.7vw 3vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.445);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.989);
+    box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.095);
     transition: background 0.3s ease;
 }
 
@@ -45,7 +45,7 @@ header ul {
 
 header ul li {
     list-style: none;
-    margin-left: 20px;
+    margin-left: 1vw;
     position: relative;
 }
 
@@ -64,26 +64,55 @@ header ul li a.active {
     color: white;
 }
 
-/* Seção principal */
-section .intro  {
-    position: relative;
+
+.intro {
+    background-image: url('../assets/img.jpg');
+    background-size: cover;
+    position: s;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 6px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* background-image: url('../assets/drama.png'); */
 }
 
-#text {
+.intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.564); /* Define a cor e opacidade da sobreposição */
+    z-index: 1; /* Fica atrás do conteúdo da seção */
+}
+
+.card_intro {
     position: relative;
-    color: #ED1F8F;
+    z-index: 2; /* Coloca o conteúdo acima da sobreposição */
+}
+
+.intro h1{
+    position: relative;
+    color: #ffffff;
     white-space: nowrap;
-    font-size: 7.5vw;
+    font-size: 2vw;
+    font-weight: bold;
     z-index: 9;
     margin-bottom: 20px;
+    background-color: #ed1f9068;
+}
+
+.intro p{
+    position: relative;
+    color: #ffffff;
+    white-space: nowrap;
+    font-size: 1.8vw;
+    font-weight: bold;
+    z-index: 9;
+    margin-bottom: 2px;
 }
 
 #btn {
@@ -307,6 +336,7 @@ textarea {
     color: #ffffff;
     padding: 100px 30px;
     text-align: center;
+    padding: 10px;
 }
 
 .cta-button {
@@ -320,7 +350,8 @@ textarea {
     border: 10px;
     font-weight: bold;
 }
-cta.categoria #btn:hover {
+.cta-button:hover {
+    color: #F8F7F7;
     background: #ED1F8F;
 }
 
@@ -346,6 +377,7 @@ cta.categoria #btn:hover {
 }
 
 .a_footer {
+    text-decoration: none;
     width: 17vw;
     height: 4vw;
     display: flex;
@@ -353,7 +385,7 @@ cta.categoria #btn:hover {
     align-items: center;
     border-radius: 0.4vw;
     color: #ffffff;
-    background-color: white;
+    background-color: #ED1F8F;
     font-weight: 600;
     font-size: 1.4vw;
 }
@@ -367,7 +399,7 @@ cta.categoria #btn:hover {
     justify-content: flex-end;
     align-items: end;
     height: 100%;
-    color: white;
+    color: rgb(145, 145, 145);
     font-weight: lighter;
 }
 
@@ -473,7 +505,7 @@ footer {
     width: 100%;
     height: 35vw;
     background-color: #ed1f9004;
-    color: #ffffff;
+    color: #727272;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -490,7 +522,7 @@ footer {
 
 footer hr {
     width: 10vw;
-    color: white;
+    color: rgb(157, 157, 157);
 }
 
 .img_footer1, .img_footer2, .img_footer3 {
@@ -541,7 +573,7 @@ footer hr {
     justify-content: space-around;
     align-items: center;
     font-weight: 600;
-    color: #ED1F8F;
+    color: #F16C90;
     font-size: 1.1vw;
 }
 
@@ -553,7 +585,7 @@ footer hr {
 .box_footer_termos a {
     font-size: 1.1vw;
     font-weight: 600;
-    color: #ED1F8F;
+    color: #F16C90;
     text-decoration: none;
 }
 
@@ -566,9 +598,13 @@ footer hr {
     align-items: center;
     border-radius: 0.4vw;
     color: #ffffff;
-    background-color: #ED1F8F;
+    background-color: #F16C90;
     font-weight: 600;
     font-size: 1.4vw;
+}
+
+.a_footer:hover {
+    background: #ED1F8F
 }
 
 .footer_title {
@@ -618,6 +654,7 @@ footer hr {
     footer {
         height: 60vw;
         flex-direction: column;
+        background-color: #dedede5e;
     }
 
     .box_footer_cabecalho {
@@ -735,11 +772,11 @@ section.categoria #btn:hover {
     max-width: 20%;
     background-color: #ffffff;
     border-radius: 4vw;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin: 20px;
+    box-shadow: 0vw 1vw 3vw rgba(0, 0, 0, 0.044);
+    padding: 2vw;
+    margin: 1vw;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s; /* Efeito de transição ao passar o mouse */
+    transition: transform 0.4s, box-shadow 0.3s; /* Efeito de transição ao passar o mouse */
   }
   
   /* Efeito hover nos cartões */
