@@ -3,23 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidade - DramaLand</title>
+    <title>DramaLand - Sua Plataforma de Doramas</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
     <header>
-        <img class="logo" src="assets/logo.png">
+        <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li><a href="categorias.html">Categorias</a></li>
-                <li><a href="comunidade.html" class="active">Comunidade</a></li>
-                <li><a href="noticias.html">Notícias</a></li>
+                <li>
+                    <a href="categorias.html">Categorias</a>
+                    <div class="dropdown">
+                        <a href="#">Romance</a>
+                        <a href="#">Comédia</a>
+                        <a href="#">Ação</a>
+                        <a href="#">Fantasia</a>
+                        <a href="#">Drama</a>
+                        <a href="#">Mistério</a>
+                        <a href="#">Thriller</a>
+                        <a href="#">Histórico</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="comunidade.html">Comunidade</a>
+                    <div class="dropdown">
+                        <a href="#">Quiz</a>
+                    </div>
+                </li>
                 <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li id="loginLink"><a href="login.html">Login</a></li>
+                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
             </ul>
         </nav>
-    </header>
+    </header>  
+    
     
     <section class="comunidade">
         <h2>Comunidade de Doramas</h2>

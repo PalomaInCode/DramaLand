@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DramaLand - Sua Plataforma de Doramas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+    <header>
+        <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li>
+                    <a href="categorias.html">Categorias</a>
+                    <div class="dropdown">
+                        <a href="#">Romance</a>
+                        <a href="#">Comédia</a>
+                        <a href="#">Ação</a>
+                        <a href="#">Fantasia</a>
+                        <a href="#">Drama</a>
+                        <a href="#">Mistério</a>
+                        <a href="#">Thriller</a>
+                        <a href="#">Histórico</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="comunidade.html">Comunidade</a>
+                    <div class="dropdown">
+                        <a href="#">Quiz</a>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li id="loginLink"><a href="login.html">Login</a></li>
+                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Catalogo de Doramas -->
+    <section class="catalogo-section">
+        <h2>Catálogo de Doramas</h2>
+        <div class="catalogo-grid">
+            <!-- Exemplo de item de dorama -->
+            <div class="catalogo-item">
+                <div class="catalogo-content">
+                    <img src="assets/img.jpg" alt="Romance" class="catalogo-img">
+                    <h3>Romance no Ar</h3>
+                    <a href="romance.html" class="btn-dorama">Ver Detalhes</a>
+                </div>
+            </div>
+            <div class="catalogo-item">
+                <div class="catalogo-content">
+                    <img src="assets/img.jpg" alt="Comédia" class="catalogo-img">
+                    <h3>Comédia de Erros</h3>
+                    <a href="comedia.html" class="btn-dorama">Ver Detalhes</a>
+                </div>
+            </div>
+            <div class="catalogo-item">
+                <div class="catalogo-content">
+                    <img src="assets/img.jpg" alt="Ação" class="catalogo-img">
+                    <h3>Ação Explosiva</h3>
+                    <a href="acao.html" class="btn-dorama">Ver Detalhes</a>
+                </div>
+            </div>
+            <div class="catalogo-item">
+                <div class="catalogo-content">
+                    <img src="assets/img.jpg" alt="Fantasia" class="catalogo-img">
+                    <h3>Reino Fantástico</h3>
+                    <a href="fantasia.html" class="btn-dorama">Ver Detalhes</a>
+                </div>
+            </div>
+            <!-- Adicione mais itens de dorama conforme necessário -->
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 DramaLand - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+</body>
+</html>

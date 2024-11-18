@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>DramaLand - Sua Plataforma de Doramas</title>
     <link rel="stylesheet" href="css/style_cl.css">
 </head>
 <body>
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
     <header>
-        <a href="index.html">
-        <img class="logo" src="assets/logo.png" alt="Logo">
+        <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li><a href="em-alta.html">Em Alta</a></li>
                 <li>
                     <a href="categorias.html">Categorias</a>
                     <div class="dropdown">
@@ -30,25 +29,18 @@
                 <li>
                     <a href="comunidade.html">Comunidade</a>
                     <div class="dropdown">
-                        <a href="#"></a>
                         <a href="#">Quiz</a>
-                        <a href="#">Fórum</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="noticias.html">Notícias</a>
-                    <div class="dropdown">
-                        <a href="#">Notícia 1</a>
-                        <a href="#">Notícia 2</a>
-                        <a href="#">Notícia 3</a>
                     </div>
                 </li>
                 <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="login.html" class="active">Login</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
+                <li id="loginLink"><a href="login.html">Login</a></li>
+                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
             </ul>
         </nav>
-    </header> 
+    </header>  
+
     <div class="form-container">
         <h2>Login</h2>
         <form id="loginForm">
@@ -62,82 +54,103 @@
                 <input type="password" id="loginPassword" required>
                 <div class="status-message" id="passwordStatus"></div>
             </div>
-            <button type="submit">Entrar</button>
-            <div class="error-message" id="loginError"></div>
+            <button type="button" onclick="entrar()">Entrar</button>
+            <div class="error-message" id="loginError" style="display: none;"></div>
         </form>
     </div>
-
-    <script>
-
-
-        function entrar() {
-            aguardar();
-    
-            var email = email_input.value;
-            var senha = senha_input.value;
-    
-            if (email == "" || senha == "") {
-                cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-                finalizarAguardar();
-                return false;
-            }
-            else {
-                setInterval(sumirMensagem, 5000)
-            }
-    
-            console.log("FORM LOGIN: ", email);
-            console.log("FORM SENHA: ", senha);
-    
-            fetch("/usuarios/autenticar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    emailServer: email,
-                    senhaServer: senha
-                })
-            }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO entrar()!")
-    
-                if (resposta.ok) {
-                    console.log(resposta);
-    
-                    resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.email;
-                        sessionStorage.NOME_USUARIO = json.nome;
-                        sessionStorage.ID_USUARIO = json.id;
-    
-                        setTimeout(function () {
-                            window.location = "index.html";
-                        }, 1000); // apenas para exibir o loading
-    
-                    });
-    
-                } else {
-    
-                    console.log("Houve um erro ao tentar realizar o login!");
-    
-                    resposta.text().then(texto => {
-                        console.error(texto);
-                        finalizarAguardar(texto);
-                    });
-                }
-    
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-    
-            return false;
-        }
-    
-        function sumirMensagem() {
-            cardErro.style.display = "none"
-        }
-    
-    </script>
 </body>
 </html>
+
+<script>
+    function entrar() {
+        var emailVar = document.getElementById("loginEmail").value;
+        var senhaVar = document.getElementById("loginPassword").value;
+
+        var emailField = document.getElementById("loginEmail");
+        var senhaField = document.getElementById("loginPassword");
+        var cardErro = document.getElementById("loginError");
+
+        // Resetando os estilos e mensagens de erro
+        emailField.classList.remove('invalid', 'valid');
+        senhaField.classList.remove('invalid', 'valid');
+        cardErro.style.display = "none";
+        cardErro.innerHTML = "";
+
+        // Validação de campos vazios
+        if (emailVar == "" || senhaVar == "") {
+            if (emailVar == "") {
+                emailField.classList.add('invalid');
+            } else {
+                emailField.classList.add('valid');
+            }
+
+            if (senhaVar == "") {
+                senhaField.classList.add('invalid');
+            } else {
+                senhaField.classList.add('valid');
+            }
+
+            cardErro.style.display = "block";
+            cardErro.innerHTML = "Por favor, preencha todos os campos!";
+            return false;
+        }
+
+        // Validação de formato de e-mail
+        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(emailVar)) {
+            emailField.classList.add('invalid');
+            cardErro.style.display = "block";
+            cardErro.innerHTML = "Por favor, insira um e-mail válido!";
+            return false;
+        } else {
+            emailField.classList.add('valid');
+        }
+
+        // Validação de senha (mínimo de 6 caracteres)
+        if (senhaVar.length < 6) {
+            senhaField.classList.add('invalid');
+            cardErro.style.display = "block";
+            cardErro.innerHTML = "A senha deve ter no mínimo 6 caracteres!";
+            return false;
+        } else {
+            senhaField.classList.add('valid');
+        }
+
+        // Se tudo estiver correto, enviar a solicitação
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(json => {
+                    // Armazenar informações do usuário
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "/index.html";
+                    }, 1000);
+                });
+            } else {
+                resposta.text().then(texto => {
+                    cardErro.style.display = "block";
+                    cardErro.innerHTML = texto;
+                });
+            }
+        }).catch(function (erro) {
+            console.log("Erro ao tentar autenticar:", erro);
+        });
+
+        return false;
+    }
+</script>

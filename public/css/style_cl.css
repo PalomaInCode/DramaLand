@@ -12,28 +12,29 @@ body {
     background: linear-gradient(#ffffff, #f8f9fa);
     color: #333;
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
+/* Header */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1vw 3vw;
+    padding: 0.7vw 3vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.445); /* Fundo branco semitransparente */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: background 0.3s ease; /* Transição suave para o fundo do header */
+    background: rgba(255, 255, 255, 0.445);
+    box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
 }
 
 header.scrolled {
-    background: rgba(255, 255, 255, 1); /* Muda o fundo quando rolar a página */
+    background: rgba(255, 255, 255, 1);
 }
 
 header .logo {
@@ -48,45 +49,158 @@ header ul {
 
 header ul li {
     list-style: none;
-    margin-left: 20px;
-    position: relative; /* Necessário para o posicionamento do dropdown */
+    margin-left: 2vw;
+    position: relative;
 }
 
 header ul li a {
     text-decoration: none;
     padding: 6px 15px;
-    color: #333; /* Texto em cinza escuro */
+    color: #333;
     border-radius: 20px;
-    font-size: 1.2em; /* Aumenta o tamanho da fonte da navbar */
-    transition: background 0.3s ease, color 0.3s ease; /* Transições suaves */
+    font-size: 1.2em;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 header ul li a:hover,
 header ul li a.active {
-    background: #ED1F8F; /* Rosa */
-    color: white; /* Texto branco ao passar o mouse */
+    background: #ED1F8F;
+    color: white;
 }
 
+/* Dropdown */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+header ul li:hover .dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s 0s;
+}
+
+.dropdown a {
+    padding: 10px 15px;
+    display: block;
+    color: #333333;
+    transition: background 0.3s ease;
+}
+
+.dropdown a:hover {
+    background: #F16C90;
+}
+
+/* Section */
 section {
     position: relative;
     width: 100%;
-    height: calc(100vh - 60px); /* Altura da seção, subtraindo o header */
+    height: calc(100vh - 60px);
     display: flex;
-    flex-direction: column; /* Permite empilhar o texto e o botão verticalmente */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o texto */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #text {
-    position: relative; /* Ajustado para permitir o espaçamento */
-    color: #ED1F8F; /* Rosa */
+    position: relative;
+    color: #ED1F8F;
     white-space: nowrap;
     font-size: 7.5vw;
     z-index: 9;
-    margin-bottom: 20px; /* Espaço entre o título e o botão */
+    margin-bottom: 20px;
 }
 
+/* Intro Section */
+.intro {
+    background-image: url('../assets/img.jpg');
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 6px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.564);
+    z-index: 1;
+}
+
+.card_intro {
+    position: relative;
+    z-index: 2;
+}
+
+.intro h1 {
+    color: #ffffff;
+    font-size: 2vw;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background-color: #ed1f9068;
+}
+
+.intro p {
+    color: #ffffff;
+    font-size: 1.8vw;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+#btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #ED1F8F;
+    color: white;
+    font-size: 1.5em;
+    transition: background 0.3s ease;
+}
+
+#btn:hover {
+    background: #F16C90;
+}
+
+/* Additional Section */
+.sec {
+    padding: 100px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.sec h2 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #ED1F8F;
+}
+
+.sec p {
+    padding: 0 14vw;
+    font-size: 1vw;
+    color: #333;
+}
+
+/* Form Container */
 .form-container {
     background: white;
     padding: 40px;
@@ -146,78 +260,96 @@ button:hover {
     background: #F16C90;
 }
 
-.status-message {
-    font-size: 0.9em;
-    margin-top: 5px;
+/* Spinner */
+#loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Oculta mensagens e spinner por padrão */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+#loading-container:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s 0s;
 }
 
 .success-message {
+    margin-top: 1vw;
+    color: green;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.status-message {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.status-message[style*="color: red"] {
+    color: red;
+}
+
+.status-message[style*="color: green"] {
     color: green;
 }
-
-.error-message {
-    color: red;
-    text-align: center;
-    margin-top: 10px;
+/* Spinner */
+#loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    visibility: hidden; /* Inicialmente escondido */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
 }
 
-@media (max-width: 768px) {
-    header {
-        padding: 20px 50px;
-    }
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
 
-    header .logo {
-        font-size: 1.6em; /* Ajuste do tamanho da logo */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
     }
-
-    #text {
-        font-size: 10vw;
-    }
-
-    .form-container h2 {
-        font-size: 1.6em;
-    }
-
-    .input-group label {
-        font-size: 1em;
+    100% {
+        transform: rotate(360deg);
     }
 }
 
-/* Estilos para o dropdown */
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    box-shadow: 0 4px 8px rgba(109, 109, 109, 0.1);
-    z-index: 10000;
-}
-
-header ul li:hover .dropdown {
-    display: block;
-}
-
-.dropdown a {
-    padding: 10px 15px;
-    display: block;
-    color: #333333;
-    transition: background 0.3s ease;
-}
-
-.dropdown a:hover {
-    background: #F16C90;
-}
-
-/* Animação do texto */
-@keyframes slide-in {
-    from {
-        right: -350px;
-        opacity: 0;
-    }
-    to {
-        right: 50%;
-        opacity: 1;
-        transform: translateX(50%);
-    }
+/* Classe para mostrar o spinner */
+#loading-container.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0s 0s;
 }

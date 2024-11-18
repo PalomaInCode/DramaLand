@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DramaLand - Sua Plataforma de Doramas</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
     <header>
         <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li><a href="em-alta.html">Em Alta</a></li>
                 <li>
                     <a href="categorias.html">Categorias</a>
                     <div class="dropdown">
@@ -30,124 +31,138 @@
                     <a href="comunidade.html">Comunidade</a>
                     <div class="dropdown">
                         <a href="#">Quiz</a>
-                        <a href="#">Fórum</a>
                     </div>
                 </li>
-                <li>
-                    <a href="noticias.html">Notícias</a>
-                    <div class="dropdown">
-                        <a href="#">Notícia 1</a>
-                        <a href="#">Notícia 2</a>
-                        <a href="#">Notícia 3</a>
-                    </div>
-                </li>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li id="loginLink"><a href="login.html">Login</a></li>
+                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
             </ul>
         </nav>
-    </header>
+    </header>      
 
-    <!-- Seção de Introdução -->
-        <div class="card_intro">
-            <div class="intro">
-        <h1>Bem-vindo ao DramaLand!</h1>
-        <p>Explore um mundo repleto de doramas emocionantes </p>
-        <p>de diferentes gêneros, prontos para te conquistar!</p>
-        <a href="#" id="btn" class="explore-btn">Ver Mais</a>
+    <div class="slider">
+        <div class="slides">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <img src="assets/img.jpg" alt="Imagem 1">
+                <div class="caption">
+                    <h1>Bem-vindo ao DramaLand!</h1>
+                    <p>Explore tudo sobre o universo dos doramas.</p>
+                </div>
             </div>
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="assets/img2.jpg" alt="Imagem 2">
+                <div class="caption">
+                    <h1>Doramas imperdíveis para você se apaixonar!</h1>
+                    <p>Mergulhe em histórias que vão conquistar seu coração e proporcionar momentos inesquecíveis.</p>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="assets/img3.png" alt="Imagem 3">
+                <div class="caption">
+                    <h1>Inicie sua jornada no DramaLand!</h1>
+                    <p>Cadastre-se agora e explore um universo exclusivo de doramas, dicas valiosas e uma comunidade apaixonada!</p>
+                    <a href="cadastro.html" class="caption-button">Cadastre-se</a>
+                </div>
+            </div>            
         </div>
-    
+        <!-- Indicadores (bolinhas) -->
+        <div class="dots">
+            <span class="dot" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+        </div>
+    </div>
+
     <!-- Seção "O que é Dorama?" -->
     <div class="sec">
         <h2>O que é dorama?</h2>
         <p>Doramas sul-coreanos, conhecidos como K-dramas, são séries populares que cobrem gêneros variados como romance, comédia, ação e fantasia. Com temporadas curtas e episódios entre 30 a 60 minutos, os K-dramas exploram temas universais, como amor, amizade e crescimento pessoal, e são famosos por sua abordagem emotiva e envolvente.</p>
     </div>
     
-    <!-- Seção de Categorias -->
-     <section class="categoria">
+<!-- Seção de Categorias -->
+<section class="categoria">
     <div class="texto">
-    <h2>Categorias</h2>
+        <h2>Categorias</h2>
         <div class="categorias">
+            <!-- Categoria 1: Romance -->
             <div class="card">
                 <h3>Romance</h3>
-                <p>Histórias de amor intensas e emocionantes.</p>
+                <p>Histórias de amor intensas e tocantes, que exploram os altos e baixos das emoções humanas.</p>
                 <a href="#" id="btn" class="explore-btn">Ver Mais</a>
             </div>
+            <!-- Categoria 2: Comédia -->
             <div class="card">
                 <h3>Comédia</h3>
-                <p>Comédias leves para arrancar boas risadas.</p>
+                <p>Situações engraçadas e personagens carismáticos que prometem muitos momentos de diversão e risadas.</p>
                 <a href="#" id="btn" class="explore-btn">Ver Mais</a>
             </div>
+            <!-- Categoria 3: Ação -->
             <div class="card">
                 <h3>Ação</h3>
-                <p>Adrenalina pura em cenas de ação inesquecíveis.</p>
+                <p>Cenas cheias de adrenalina, lutas e perseguições que garantem uma experiência emocionante.</p>
                 <a href="#" id="btn" class="explore-btn">Ver Mais</a>
             </div>
+            <!-- Categoria 4: Fantasia -->
             <div class="card">
                 <h3>Fantasia</h3>
-                <p>Adrenalina pura em cenas de ação inesquecíveis.</p>
+                <p>Mundos mágicos e aventuras fantásticas que exploram o impossível e o extraordinário.</p>
                 <a href="#" id="btn" class="explore-btn">Ver Mais</a>
             </div>
+            <!-- Categoria 5: Drama -->
             <div class="card">
                 <h3>Drama</h3>
-                <p>Adrenalina pura em cenas de ação inesquecíveis.</p>
-                <a href="#" id="btn" class="explore-btn">Ver mais</a>
+                <p>Histórias emocionantes que exploram os desafios e as complexidades da vida e das relações.</p>
+                <a href="#" id="btn" class="explore-btn">Ver Mais</a>
             </div>
+            <!-- Categoria 6: Mistério -->
             <div class="card">
                 <h3>Mistério</h3>
-                <p>Adrenalina pura em cenas de ação inesquecíveis.</p>
+                <p>Enigmas e segredos a serem desvendados, com tramas que prendem a atenção até o último segundo.</p>
                 <a href="#" id="btn" class="explore-btn">Ver Mais</a>
             </div>
+            <!-- Categoria 7: Thriller -->
             <div class="card">
                 <h3>Thriller</h3>
-                <p>Adrenalina pura em cenas de ação inesquecíveis.</p>
+                <p>Suspense e tensão em histórias emocionantes, com reviravoltas que mantêm o espectador intrigado.</p>
                 <a href="#" id="btn" class="explore-btn">Ver Mais</a>
             </div>
+            <!-- Categoria 8: Histórico -->
             <div class="card">
                 <h3>Histórico</h3>
-                <p>Adrenalina pura em cenas de ação inesquecíveis.</p>
+                <p>Exploração de eventos e personagens históricos com narrativas que trazem o passado de forma envolvente.</p>
                 <a href="#" id="btn" class="explore-btn">Ver Mais</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
     <!-- Seção de Chamada para Ação -->
-        <div class="cta">
+    <div class="cta">
         <h2>Pronto para começar sua jornada pelos Doramas?</h2>
         <p>Cadastre-se e tenha acesso a todos os conteúdos exclusivos de DramaLand!</p>
-        <a href="cadastro.html" class="cta-button">Cadastre-se</a>
+        <a href="cadastro.html" class="cta-button">Clique aqui</a>
     </div>
-    
+
     <footer>
         <div class="box_footer_cabecalho">
-            <img src="./assets/logo.png" alt="Dramaland Logo">
             <div class="box_footer_redes">
-                <div class="img_footer1"></div>
-                <div class="img_footer2"></div>
-                <div class="img_footer3"></div>
+                <a href="#" class="social_icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social_icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social_icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
             </div>
-            <div class="div_linha"></div>
         </div>
-    
-        <div class="box_footer_rodape">
-            <div class="box_footer_contato">
-                <p class="footer_title">Dramaland</p>
-                <p>contato@dramaland.com</p>
-                <p>(11) 12345-6789</p>
-                <br>
-                <p>Rua do Entretenimento, 200 - Centro</p>
-                <p>São Paulo - SP</p>
-                <p>01010100</p>
-                <p>Razão Social: DramaLand Ltda.</p>
-                <p>CNPJ 12.345.678/0001-99</p>
-            </div>
-            <div class="box_footer_termos">
-                <p><a href="#">Política de Privacidade</a></p>
-                <p><a href="#">Termos de Uso</a></p>
-                <a href="./contato.html">Fale Conosco</a>
-            </div>
-            <a class="a_footer" href="./index.html">Voltar ao topo</a>
-        </div>
-    
         <p class="footer_final">© 2024 Dramaland - Todos os direitos reservados.</p>
-    </footer>
+    </footer>    
+</body>
+</html>
