@@ -34,8 +34,8 @@ header.scrolled {
 }
 
 header .logo {
-    padding-left: 3%;
-    width: 11%;
+    padding-left: 2vw;
+    width: 9vw;
     cursor: pointer;
 }
 
@@ -52,10 +52,10 @@ header ul li {
 
 header ul li a {
     text-decoration: none;
-    padding: 6px 15px;
+    padding: 0.4vw 0.8vw;
     color: #333;
-    border-radius: 20px;
-    font-size: 1.2em;
+    border-radius: 1.4vw;
+    font-size: 1vw;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -65,65 +65,14 @@ header ul li a.active {
     color: white;
 }
 
-
-.intro {
-    background-image: url('../assets/img.jpg');
-    background-size: cover;
-    position: s;
-    width: 100%;
-    height: calc(100vh - 6px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.intro::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.564); /* Define a cor e opacidade da sobreposição */
-    z-index: 1; /* Fica atrás do conteúdo da seção */
-}
-
-.card_intro {
-    position: relative;
-    z-index: 2; /* Coloca o conteúdo acima da sobreposição */
-}
-
-.intro h1{
-    position: relative;
-    color: #ffffff;
-    white-space: nowrap;
-    font-size: 2vw;
-    font-weight: bold;
-    z-index: 9;
-    margin-bottom: 20px;
-    background-color: #ed1f9068;
-}
-
-.intro p{
-    position: relative;
-    color: #ffffff;
-    white-space: nowrap;
-    font-size: 1.8vw;
-    font-weight: bold;
-    z-index: 9;
-    margin-bottom: 2px;
-}
-
 #btn {
     text-decoration: none;
     display: inline-block;
-    padding: 8px 30px;
-    border-radius: 40px;
+    padding: 1vw 2vw;
+    border-radius: 2vw;
     background: #ED1F8F;
     color: white;
-    font-size: 1.5em;
+    font-size: 1vw;
     z-index: 9;
     transition: background 0.3s ease;
 }
@@ -134,14 +83,14 @@ header ul li a.active {
 
 /* Secção de conteúdo adicional */
 .sec {
-    padding: 100px;
+    padding: 7vw;
     background: #f8f9fa;
     text-align: center;
 }
 
 .sec h2 {
-    font-size: 3.5em;
-    margin-bottom: 10px;
+    font-size: 2.5vw;
+    margin-bottom: 0.8vw;
     color: #ED1F8F;
 }
 
@@ -154,8 +103,9 @@ header ul li a.active {
 /* Estilos do menu dropdown */
 .dropdown {
     display: none;
+    text-align: center;
     position: absolute;
-    top: 100%;
+    top: 125%;
     left: 0;
     background: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -163,6 +113,7 @@ header ul li a.active {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0s 0.3s;
+    border-radius: 0%;
 }
 
 header ul li:hover .dropdown {
@@ -170,157 +121,28 @@ header ul li:hover .dropdown {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease, visibility 0s 0s;
+    border-radius: 0%;
 }
 
 .dropdown a {
-    padding: 10px 15px;
+    padding: 0.5vw 1vw;
     display: block;
     color: #333333;
     transition: background 0.3s ease;
+    border-radius: 0%;
 }
 
 .dropdown a:hover {
     background: #ed1f9091;
+    border-radius: 0%;
 }
 
-/* Animação do texto */
-@keyframes slide-in {
-    from {
-        right: -350px;
-        opacity: 0;
-    }
-    to {
-        right: 50%;
-        opacity: 1;
-        transform: translateX(50%);
-    }
-}
-
-/* Estilo responsivo */
-@media (max-width: 768px) {
-    header {
-        padding: 20px 50px;
-    }
-
-    header .logo {
-        font-size: 1.5em;
-    }
-
-    #text {
-        font-size: 10vw;
-    }
-
-    .sec h2 {
-        font-size: 2.5em;
-    }
-}
-
-/* Estilos para o Carrossel */
-.carrossel {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.carrossel-container {
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
-    position: relative;
-}
-
-.carrossel-item {
-    margin: 0 10px;
-    flex: 0 0 auto;
-    width: 300px;
-}
-
-.carrossel-item img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.carrossel-desc {
-    margin-top: 10px;
-    font-size: 1.2rem;
-}
-
-/* Filtro de Busca */
-.busca {
-    text-align: center;
-    margin: 40px 0;
-}
-
-.busca input,
-.busca select {
-    padding: 10px;
-    font-size: 1rem;
-    margin: 10px;
-    width: 300px;
-    border-radius: 5px;
-}
-
-.busca button {
-    background-color: #ED1F8F;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Comentários */
-.comentarios {
-    background-color: #f9f9f9;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.comentarios-lista {
-    margin-bottom: 20px;
-}
-
-.comentario-item {
-    margin: 10px 0;
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.comentarios button {
-    background-color: #ED1F8F;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-}
-
-/* Vídeos */
-.trailers {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.video-container {
-    margin-top: 20px;
-}
 
 /* Chamada para Ação */
 .cta {
     position: relative;
     width: 100%;
-    height: 30vh;
+    height: 15vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -328,27 +150,20 @@ textarea {
     text-align: center;
     background-color: #ffffff;
     text-decoration: none;
-    color: #ED1F8F;
-    padding: 10px 20px;
-}
-.cta {
-    background-color: #f8f9fa;
-    text-decoration: none;
     color: #3d3d3d;
-    padding: 100px 30px;
-    text-align: center;
-    padding: 10px;
+    font-size: 1vw;
 }
 
 .cta-button {
+    margin: 1vw;
     align-items: center;
     justify-content: flex;
     background-color: #ed1f90;
     color: #ffffff;
     text-decoration: none;
-    padding: 10px 30px;
-    border-radius: 50px;
-    border: 10px;
+    padding: 0.5vw 1vw;
+    border-radius: 1.4vw;
+    font-size: 0.8vw;
     font-weight: bold;
 }
 .cta-button:hover {
@@ -356,168 +171,36 @@ textarea {
     background: #ed1f9091;
 }
 
-.box_footer_rodape {
-    width: 80vw;
-    margin-top: 5vw;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-weight: 600;
-    color: rgb(211, 211, 211);
-    font-size: 1.1vw;
-}
-
-.a_footer {
-    text-decoration: none;
-    width: 17vw;
-    height: 4vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.4vw;
-    color: #ffffff;
-    background-color: #52002d;
-    font-weight: 600;
-    font-size: 1.4vw;
-}
-
-.footer_title {
-    font-weight: 700;
-}
-
-.footer_final {
-    display: flex;
-    justify-content: flex-end;
-    align-items: end;
-    height: 100%;
-    color: #ED1F8F
-    font-weight: lighter;
-}
-
-.container_contato {
-    padding-top: 6vw;
-    background-color: #f5f5f5;
-    width: 100%;
-    height: 50vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.box_form {
-    background-color: #FFFFFF;
-    border-radius: 0.5vw;
-    display: flex;
-    flex-direction: column;
-    width: 35vw;
-    height: 35vw;
-    margin-right: 4vw;
-    font-size: 1.7vw;
-    font-family: "Poppins", sans-serif;
-}
-
-.box_form input,
-.box_form textarea {
-    font-size: 1.3vw;
-    margin: 1.6vw;
-    padding: 0.8vw;
-    border-radius: 10px;
-}
-
-.form_btn {
-    padding: 1.5vw;
-    border-radius: 5vw;
-    border: none;
-    color: #ED1F8F;
-    font-weight: 700;
-    font-size: 1.3vw;
-    background-color:#ffffff;
-    cursor: pointer;
-}
-
-/* Estilo da seção de informações */
-.container_info {
-    background-image: url('./assets/mais_info.png');
-    background-size: cover;
-    width: 100%;
-    height: 32vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: white;
-}
-
-.box_info {
-    width: 45vw;
-    margin-right: 3vw;
-}
-
-.box_info input {
-    width: 30vw;
-    border: none;
-    height: 4.5vw;
-    margin-right: 1.8vw;
-    border-radius: 0.6vw;
-}
-
-::placeholder {
-    padding-left: 2vw;
-}
-
-.box_info button {
-    width: 16.5vw;
-    border: none;
-    height: 4.5vw;
-    font-size: 1.4vw;
-    font-weight: 600;
-    color: rgb(255, 255, 255);
-    background-color: #ffffff;
-    border-radius: 0.6vw;
-    cursor: pointer;
-}
-
-.box_info div {
-    display: flex;
-}
-
-.box_info h3 {
-    font-size: 2.4vw;
-    width: 20vw;
-    margin-bottom: 1.4vw;
-}
-
-.box_info p {
-    font-size: 1.5vw;
-    margin-bottom: 1vw;
-}
-
 section.categoria  {
     background-color: #dedede5e;
     position: relative;
     width: 100%;
-    height: calc(90vh - 60px);
+    height: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 section.categoria  h3{
-    font-size: 23x;
+    font-size: 2vw;
 }
 
 section.categoria  p{
-    font-size: 18x;
+    font-size: 1vw;
 }
-section.categoria #btn {
+
+.card .explore-btn {
     text-decoration: none;
-    display: inline-block;
-    padding: 8px 30px;
-    border-radius: 40px;
+    padding: 0.9vw 3vw;
+    border-radius: 2vw;
     background: #ed1f9091;
     color: white;
-    font-size: 1.1em;
+    font-size: 1vw;
     transition: background 0.3s ease;
+    min-width: 10px;
+    max-width: none;
 }
 
 section.categoria #btn:hover {
@@ -550,7 +233,8 @@ section.categoria #btn:hover {
   
   /* Estilos para os cartões */
   .card {
-    max-width: 20%;
+    width: 20vw;
+    height: 18vw;
     background-color: #ffffff;
     border-radius: 2.5vw;
     box-shadow: 0vw 1vw 3vw rgba(0, 0, 0, 0.044);
@@ -569,7 +253,7 @@ section.categoria #btn:hover {
   
   /* Estilos específicos para a seção de categorias */
   .texto h2 {
-    font-size: 1.7vw;
+    font-size: 1.9vw;
     display: flex;
     justify-content: center;
   }
@@ -582,7 +266,7 @@ section.categoria #btn:hover {
     
   /* Estilos para os elementos dentro dos cartões */
   .card h3 {
-    font-size: 1.7vw;
+    font-size: 1.0vw;
     justify-content: center;
     margin-bottom: 0.5vw;
     color: #ED1F8F;
@@ -595,34 +279,34 @@ section.categoria #btn:hover {
     color: #333;
   }
   
+
+/* Estilo carrossel */
   .caption {
     position: absolute;
-    bottom: 57%; /* Ajuste a posição conforme necessário */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Corrige o alinhamento */
+    bottom: 53%;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     color: white;
     border-radius: 5px;
-    z-index: 2; /* Coloca a caption acima do fundo e da imagem */
-    padding: 10px; /* Adiciona um pouco de espaçamento interno */
+    z-index: 2;
+    padding: 10px;
 }
 
 .caption h1 {
-    font-size: 2rem;
+    font-size: 2vw;
 }
 
 .caption p {
-    font-size: 1.2rem;
+    font-size: 1.5vw;
 }
 
 .slider {
     position: relative;
     width: 100%;
-    max-height: 100vh; /* A altura agora será 90% da altura da tela */
-    margin: 0;
+    max-height: 100vh;
     overflow: hidden;
     border-radius: 0;
-    padding-top: 20px; /* Ajuste o valor conforme necessário */
 }
 
 /* Estilo do slider */
@@ -634,22 +318,22 @@ section.categoria #btn:hover {
 
 .slide {
     min-width: 100%;
-    position: relative; /* Necessário para posicionar corretamente a caption */
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alinha as imagens ao fundo do slide */
+    align-items: flex-end;
 }
 
 .slide img {
     width: 100%;
-    height: 100%; /* Garante que a imagem ocupe a altura do slider */
-    object-fit: cover; /* Faz a imagem cobrir o slider sem distorcer */
-    object-position: top; /* Move a imagem para o topo */
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
 }
 
 /* Adicionando fundo escuro sobre a imagem */
 .slide::before {
-    content: ''; /* Cria um pseudo-elemento vazio */
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -671,8 +355,8 @@ section.categoria #btn:hover {
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 0.9vw;
+    height: 0.9vw;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -680,7 +364,7 @@ section.categoria #btn:hover {
 }
 
 .dot.active {
-    background-color: #fff; /* Cor para a bolinha ativa */
+    background-color: #ffffff; /* Cor para a bolinha ativa */
     transform: scale(1.2); /* Aumenta um pouco o tamanho da bolinha ativa */
 }
 
@@ -743,7 +427,7 @@ footer hr {
     justify-content: center; /* Centraliza os ícones */
     align-items: center; /* Alinha verticalmente */
     width: 100%; /* Garante que ocupe toda a largura disponível */
-    margin-top: 0.6rem; /* Reduzido o espaçamento superior */
+    margin-top: 0.0.5vw; /* Reduzido o espaçamento superior */
 }
 
 .social_icon {
@@ -766,14 +450,11 @@ footer hr {
     color: #ffffff; /* Texto branco */
     font-weight: lighter;
     margin-top: 1rem; /* Reduzindo o espaçamento superior */
-}
-
-.footer_final p {
-    font-size: 0.75rem; /* Tamanho da fonte reduzido */
+    font-size: 1vw;
 }
 
 .footer_final a {
-    font-size: 0.75rem; /* Tamanho da fonte reduzido para os links */
+    font-size: 0.5vw; /* Tamanho da fonte reduzido para os links */
     font-weight: 600;
     color: #ffffff; /* Links brancos */
     text-decoration: none;
@@ -845,37 +526,4 @@ footer hr {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adiciona sombra para o título se destacar */
     margin: 0;
     z-index: 2; /* Garante que o texto fique acima da imagem */
-}
-
-/* Estilos específicos para cada categoria (sem bordas coloridas) */
-.cat-romance .categoria-img {
-    background-color: #f07c82;
-}
-
-.cat-comedia .categoria-img {
-    background-color: #ffeb3b;
-}
-
-.cat-acao .categoria-img {
-    background-color: #f44336;
-}
-
-.cat-fantasia .categoria-img {
-    background-color: #3f51b5;
-}
-
-.cat-drama .categoria-img {
-    background-color: #9c27b0;
-}
-
-.cat-misterio .categoria-img {
-    background-color: #4caf50;
-}
-
-.cat-thriller .categoria-img {
-    background-color: #00bcd4;
-}
-
-.cat-historico .categoria-img {
-    background-color: #795548;
 }
