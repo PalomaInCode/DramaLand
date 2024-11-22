@@ -24,7 +24,7 @@ O objetivo do **Dramaland** é ser o lugar perfeito para os fãs de K-Dramas. Qu
 O **Dramaland** foi desenvolvido com as seguintes tecnologias para garantir uma navegação leve, rápida e moderna:
 
 - **JavaScript**: Linguagem principal para a interação dinâmica no site.
-- **CSS & Tailwind CSS**: Responsável pela estilização e pela criação de uma interface limpa e funcional.
+- **CSS**: Responsável pela estilização.
 - **Node.js**: Usado no backend para garantir que nosso sistema seja escalável e eficiente.
 - **JSON**: Para o intercâmbio de dados entre o frontend e backend, facilitando a comunicação com APIs externas.
 
