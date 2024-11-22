@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DramaLand - Sua Plataforma de Doramas</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
@@ -40,48 +41,74 @@
             </ul>
         </nav>
     </header>
-
-    <!-- Seção Catalogo de Doramas -->
-    <section class="catalogo-section">
-        <h2>Catálogo de Doramas</h2>
-        <div class="catalogo-grid">
-            <!-- Exemplo de item de dorama -->
-            <div class="catalogo-item">
-                <div class="catalogo-content">
-                    <img src="assets/img.jpg" alt="Romance" class="catalogo-img">
-                    <h3>Romance no Ar</h3>
-                    <a href="romance.html" class="btn-dorama">Ver Detalhes</a>
+    <!-- Seção Categorias -->
+    <section class="categorias-section">
+        <div class="categorias-grid">
+            <!-- Categorias com classes específicas -->
+            <div class="categoria-item cat-romance">
+                <div class="categoria-content">
+                    <!-- Tornando a imagem clicável -->
+                    <a id="loginLink" href="romance.html">
+                        <img src="assets/img.jpg" alt="Romance" class="categoria-img">
+                    </a>
+                                </div>
+            </div>            
+            <div class="categoria-item cat-comedia">
+                <div class="categoria-content">
+                    <img src="assets/img.jpg" alt="Comédia" class="categoria-img">
+                                </div>
+            </div>
+            <div class="categoria-item cat-acao">
+                <div class="categoria-content">
+                    <img src="assets/img.jpg" alt="Ação" class="categoria-img">
+                         </div>
+            </div>
+            <div class="categoria-item cat-fantasia">
+                <div class="categoria-content">
+                    <img src="assets/img.jpg" alt="Fantasia" class="categoria-img"></div>
+            </div>
+            <div class="categoria-item cat-drama">
+                <div class="categoria-content">
+                    <img src="assets/img.jpg" alt="Drama" class="categoria-img"></div>
+            </div>
+            <div class="categoria-item cat-misterio">
+                <div class="categoria-content">
+                    <img src="assets/img.jpg" alt="Mistério" class="categoria-img">
+                
                 </div>
             </div>
-            <div class="catalogo-item">
-                <div class="catalogo-content">
-                    <img src="assets/img.jpg" alt="Comédia" class="catalogo-img">
-                    <h3>Comédia de Erros</h3>
-                    <a href="comedia.html" class="btn-dorama">Ver Detalhes</a>
+            <div class="categoria-item cat-thriller">
+                <div class="categoria-content">
+                    <img src="assets/img.jpg" alt="Thriller" class="categoria-img">
+                
                 </div>
             </div>
-            <div class="catalogo-item">
-                <div class="catalogo-content">
-                    <img src="assets/img.jpg" alt="Ação" class="catalogo-img">
-                    <h3>Ação Explosiva</h3>
-                    <a href="acao.html" class="btn-dorama">Ver Detalhes</a>
+            <div class="categoria-item cat-historico">
+                <div class="categoria-content">
+                    <img src="assets/img.jpg" alt="Histórico" class="categoria-img">
                 </div>
             </div>
-            <div class="catalogo-item">
-                <div class="catalogo-content">
-                    <img src="assets/img.jpg" alt="Fantasia" class="catalogo-img">
-                    <h3>Reino Fantástico</h3>
-                    <a href="fantasia.html" class="btn-dorama">Ver Detalhes</a>
-                </div>
-            </div>
-            <!-- Adicione mais itens de dorama conforme necessário -->
         </div>
     </section>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2024 DramaLand - Todos os direitos reservados</p>
-    </footer>
+        <div class="box_footer_cabecalho">
+            <div class="box_footer_redes">
+                <a href="#" class="social_icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social_icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social_icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <p class="footer_final">© 2024 Dramaland - Todos os direitos reservados.</p>
+        <p>Dev by Paloma</p>
+    </footer>    
 
     <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
 </body>

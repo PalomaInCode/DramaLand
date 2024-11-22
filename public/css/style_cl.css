@@ -9,7 +9,7 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(#ffffff, #f8f9fa);
+    background: linear-gradient(#ffffff, #4545454c);
     color: #333;
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0.7vw 3vw;
+    padding: 1.3vw 3.2vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,7 +38,8 @@ header.scrolled {
 }
 
 header .logo {
-    width: 8vw;
+    padding-left: 2vw;
+    width: 9vw;
     cursor: pointer;
 }
 
@@ -55,10 +56,10 @@ header ul li {
 
 header ul li a {
     text-decoration: none;
-    padding: 6px 15px;
+    padding: 0.4vw 0.8vw;
     color: #333;
-    border-radius: 20px;
-    font-size: 1.2em;
+    border-radius: 1.4vw;
+    font-size: 1vw;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -203,10 +204,11 @@ section {
 /* Form Container */
 .form-container {
     background: white;
-    padding: 40px;
-    border-radius: 10px;
+    padding: 2vw;
+    margin-top: 5%;
+    border-radius: 2vw;
     box-shadow: 0 4px 8px rgba(80, 80, 80, 0.123);
-    max-width: 400px;
+    max-width: 28vw;
     width: 100%;
 }
 
