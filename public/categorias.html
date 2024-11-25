@@ -10,27 +10,29 @@
 <body>
     <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
     <header>
-        <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+        <a href="index.html">
+            <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+        </a>
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li>
                     <a href="categorias.html">Categorias</a>
                     <div class="dropdown">
-                        <a href="#">Romance</a>
-                        <a href="#">Comédia</a>
-                        <a href="#">Ação</a>
-                        <a href="#">Fantasia</a>
-                        <a href="#">Drama</a>
-                        <a href="#">Mistério</a>
-                        <a href="#">Thriller</a>
-                        <a href="#">Histórico</a>
+                        <a href="acao.html">Ação</a>
+                        <a href="comedia.html">Comédia</a>
+                        <a href="drama.html">Drama</a>
+                        <a href="fantasia.html">Fantasia</a>
+                        <a href="historico.html">Histórico</a>
+                        <a href="misterio.html">Mistério & Suspense</a>
+                        <a href="romance.html">Romance</a>
+                        <a href="ficcao.html">Ficção</a>
                     </div>
                 </li>
                 <li>
                     <a href="comunidade.html">Comunidade</a>
                     <div class="dropdown">
-                        <a href="#">Quiz</a>
+                        <a href="quiz.html">Quiz</a>
                     </div>
                 </li>
                 <li><a href="sobre.html">Sobre</a></li>
@@ -40,70 +42,79 @@
                 <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
             </ul>
         </nav>
-    </header>
+    </header>  
     <!-- Seção Categorias -->
     <section class="categorias-section">
         <h2>Categorias</h2>
         <div class="categorias-grid">
-            <!-- Categorias com classes específicas -->
-            <div class="categoria-item cat-romance">
-                <div class="categoria-content">
-                    <!-- Tornando a imagem clicável -->
-                    <a id="loginLink" href="romance.html">
-                        <img src="assets/romance.png" alt="Romance" class="categoria-img">
-                    </a>
-                    <h3>Romance</h3>
-                </div>
-            </div>            
-            <div class="categoria-item cat-comedia">
-                <div class="categoria-content">
-                    <img src="assets/comedia.png" alt="Comédia" class="categoria-img">
-                    <h3>Comédia</h3>
-                </div>
-            </div>
+            <!-- Categorias com classes específicas -->           
             <div class="categoria-item cat-acao">
-                <div class="categoria-content">
-                    <img src="assets/acao.png" alt="Ação" class="categoria-img">
-                    <h3>Ação</h3>
-                </div>
+                <a href="acao.html" class="categoria-link">
+                    <div class="categoria-content">
+                        <img src="assets/acao.png" alt="Ação" class="categoria-img">
+                        <h3>Ação</h3>
+                    </div>
+                </a>
             </div>
-            <div class="categoria-item cat-fantasia">
-                <div class="categoria-content">
-                    <img src="assets/fantasia.png" alt="Fantasia" class="categoria-img">
-                    <h3>Fantasia</h3>
-                </div>
+            <div class="categoria-item cat-comedia">
+                <a href="comedia.html" class="categoria-link">
+                    <div class="categoria-content">
+                        <img src="assets/comedia.png" alt="Comédia" class="categoria-img">
+                        <h3>Comédia</h3>
+                    </div>
+                </a>
             </div>
             <div class="categoria-item cat-drama">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Drama" class="categoria-img">
-                    <h3>Drama</h3>
-                </div>
+                <a href="drama.html" class="categoria-link">
+                    <div class="categoria-content">
+                        <img src="assets/drama.png" alt="Drama" class="categoria-img">
+                        <h3>Drama</h3>
+                    </div>
+                </a>
             </div>
-            <div class="categoria-item cat-misterio">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Mistério" class="categoria-img">
-                    <h3>Mistério</h3>
-                </div>
-            </div>
-            <div class="categoria-item cat-thriller">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Thriller" class="categoria-img">
-                    <h3>Thriller</h3>
-                </div>
+            <div class="categoria-item cat-fantasia">
+                <a href="fantasia.html" class="categoria-link">
+                    <div class="categoria-content">
+                        <img src="assets/fantasia.png" alt="Fantasia" class="categoria-img">
+                        <h3>Fantasia</h3>
+                    </div>
+                </a>
             </div>
             <div class="categoria-item cat-historico">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Histórico" class="categoria-img">
-                    <h3>Histórico</h3>
-                </div>
+                <a href="historico.html" class="categoria-link">
+                    <div class="categoria-content">
+                        <img src="assets/historico.jpg" alt="Histórico" class="categoria-img">
+                        <h3>Histórico</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="categoria-item cat-misterio">
+                <a href="misterio.html" class="categoria-link">
+                    <div class="categoria-content">
+                        <img src="assets/misterio.png" alt="Mistério" class="categoria-img">
+                        <h3>Mistério & Suspense</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="categoria-item cat-romance">
+                <a href="romance.html" class="categoria-link">
+                    <div class="categoria-content">
+                        <img src="assets/romance.png" alt="Romance" class="categoria-img">
+                        <h3>Romance</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="categoria-item cat-ficcao">
+                <a href="ficcao.html" class="categoria-link">
+                    <div class="categoria-content">
+                        <img src="assets/ficcao.png" alt="Ficção" class="categoria-img">
+                        <h3>Ficção</h3>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
-</body>
-</html>
-    <!-- Rodapé -->
     <footer>
         <div class="box_footer_cabecalho">
             <div class="box_footer_redes">
@@ -117,4 +128,6 @@
         </div>
         <p>Dev by Paloma</p>
         <p>© 2024 Dramaland - Todos os direitos reservados.</p>
-    </footer>  
+    </footer>   
+</body>
+</html>

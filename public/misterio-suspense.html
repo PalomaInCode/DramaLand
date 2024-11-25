@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DramaLand - Sua Plataforma de Doramas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+    <header>
+        <a href="index.html">
+            <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li>
+                    <a href="categorias.html">Categorias</a>
+                    <div class="dropdown">
+                        <a href="acao.html">Ação</a>
+                        <a href="comedia.html">Comédia</a>
+                        <a href="drama.html">Drama</a>
+                        <a href="fantasia.html">Fantasia</a>
+                        <a href="historico.html">Histórico</a>
+                        <a href="misterio.html">Mistério & Suspense</a>
+                        <a href="romance.html">Romance</a>
+                        <a href="ficcao.html">Ficção</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="comunidade.html">Comunidade</a>
+                    <div class="dropdown">
+                        <a href="quiz.html">Quiz</a>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li id="loginLink"><a href="login.html">Login</a></li>
+                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
+            </ul>
+        </nav>
+    </header> 
+    
+<!-- Seção de Doramas de Mistério e Suspense -->
+<section class="categorias-dorama-section">
+    <h4>Mistério e Suspense</h4>
+    <p>Doramas intrigantes que prendem a atenção com tramas cheias de suspense e mistérios a serem resolvidos.</p>
+    <div class="categorias-dorama-grid">
+        <!-- Doramas de mistério e suspense -->
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio1.html">
+                    <img src="assets/signal.png" alt="Signal" class="categoria-img-dorama">
+                    <h3>Signal</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio2.html">
+                    <img src="assets/stranger.png" alt="Stranger" class="categoria-img-dorama">
+                    <h3>Stranger</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio3.html">
+                    <img src="assets/mouse.png" alt="Mouse" class="categoria-img-dorama">
+                    <h3>Mouse</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio4.html">
+                    <img src="assets/tunnel.png" alt="Tunnel" class="categoria-img-dorama">
+                    <h3>Tunnel</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio5.html">
+                    <img src="assets/the_guest.png" alt="The Guest" class="categoria-img-dorama">
+                    <h3>The Guest</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio6.html">
+                    <img src="assets/voice.png" alt="Voice" class="categoria-img-dorama">
+                    <h3>Voice</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio7.html">
+                    <img src="assets/partner_for_justice.png" alt="Partner for Justice" class="categoria-img-dorama">
+                    <h3>Partner for Justice</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio8.html">
+                    <img src="assets/penthouse.png" alt="Penthouse" class="categoria-img-dorama">
+                    <h3>Penthouse</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio9.html">
+                    <img src="assets/the_k2.png" alt="The K2" class="categoria-img-dorama">
+                    <h3>The K2</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio10.html">
+                    <img src="assets/save_me.png" alt="Save Me" class="categoria-img-dorama">
+                    <h3>Save Me</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio11.html">
+                    <img src="assets/missing.png" alt="Missing: The Other Side" class="categoria-img-dorama">
+                    <h3>Missing: The Other Side</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="misterio12.html">
+                    <img src="assets/beyond_evil.png" alt="Beyond Evil" class="categoria-img-dorama">
+                    <h3>Beyond Evil</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+</body>
+</html>
+    <!-- Rodapé -->
+    <footer>
+        <div class="box_footer_cabecalho">
+            <div class="box_footer_redes">
+                <a href="https://www.linkedin.com/in/paloma-santos-dias/" class="social_icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/PalomaInCode" class="social_icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <p>Dev by Paloma</p>
+        <p>© 2024 Dramaland - Todos os direitos reservados.</p>
+    </footer>  

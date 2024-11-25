@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DramaLand - Sua Plataforma de Doramas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+    <header>
+        <a href="index.html">
+            <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li>
+                    <a href="categorias.html">Categorias</a>
+                    <div class="dropdown">
+                        <a href="acao.html">Ação</a>
+                        <a href="comedia.html">Comédia</a>
+                        <a href="drama.html">Drama</a>
+                        <a href="fantasia.html">Fantasia</a>
+                        <a href="historico.html">Histórico</a>
+                        <a href="misterio.html">Mistério & Suspense</a>
+                        <a href="romance.html">Romance</a>
+                        <a href="ficcao.html">Ficção</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="comunidade.html">Comunidade</a>
+                    <div class="dropdown">
+                        <a href="quiz.html">Quiz</a>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li id="loginLink"><a href="login.html">Login</a></li>
+                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+<!-- Seção de Doramas de Ficção -->
+<section class="categorias-dorama-section">
+    <h4>Ficção</h4>
+    <p>Doramas que exploram mundos extraordinários, histórias fantásticas e universos cheios de imaginação.</p>
+    <div class="categorias-dorama-grid">
+        <!-- Doramas de ficção -->
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao1.html">
+                    <img src="assets/my_love_from_the_star.png" alt="My Love From The Star" class="categoria-img-dorama">
+                    <h3>My Love From The Star</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao2.html">
+                    <img src="assets/goblin.png" alt="Goblin" class="categoria-img-dorama">
+                    <h3>Goblin</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao3.html">
+                    <img src="assets/hotel_del_luna.png" alt="Hotel Del Luna" class="categoria-img-dorama">
+                    <h3>Hotel Del Luna</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao4.html">
+                    <img src="assets/arthdal_chronicles.png" alt="Arthdal Chronicles" class="categoria-img-dorama">
+                    <h3>Arthdal Chronicles</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao5.html">
+                    <img src="assets/the_legend.png" alt="The Legend" class="categoria-img-dorama">
+                    <h3>The Legend</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao6.html">
+                    <img src="assets/memories_of_the_alhambra.png" alt="Memories of the Alhambra" class="categoria-img-dorama">
+                    <h3>Memories of the Alhambra</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao7.html">
+                    <img src="assets/the_kings_affection.png" alt="The King's Affection" class="categoria-img-dorama">
+                    <h3>The King's Affection</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao8.html">
+                    <img src="assets/mirror_of_the_witch.png" alt="Mirror of the Witch" class="categoria-img-dorama">
+                    <h3>Mirror of the Witch</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao9.html">
+                    <img src="assets/alice.png" alt="Alice" class="categoria-img-dorama">
+                    <h3>Alice</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao10.html">
+                    <img src="assets/doom_at_your_service.png" alt="Doom At Your Service" class="categoria-img-dorama">
+                    <h3>Doom At Your Service</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao11.html">
+                    <img src="assets/tale_of_the_nine_tailed.png" alt="Tale of the Nine-Tailed" class="categoria-img-dorama">
+                    <h3>Tale of the Nine-Tailed</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="ficcao12.html">
+                    <img src="assets/while_you_were_sleeping.png" alt="While You Were Sleeping" class="categoria-img-dorama">
+                    <h3>While You Were Sleeping</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+</body>
+</html>
+    <!-- Rodapé -->
+    <footer>
+        <div class="box_footer_cabecalho">
+            <div class="box_footer_redes">
+                <a href="https://www.linkedin.com/in/paloma-santos-dias/" class="social_icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/PalomaInCode" class="social_icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <p>Dev by Paloma</p>
+        <p>© 2024 Dramaland - Todos os direitos reservados.</p>
+    </footer>  

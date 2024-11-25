@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro</title>
-  <link rel="stylesheet" href="css/style_cl.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DramaLand - Sua Plataforma de Doramas</title>
+    <link rel="stylesheet" href="css/style_cl.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
-    <nav>
-        <ul>
-            <li><a href="index.html">Início</a></li>
-            <li>
-                <a href="categorias.html">Categorias</a>
-                <div class="dropdown">
-                    <a href="#">Romance</a>
-                    <a href="#">Comédia</a>
-                    <a href="#">Ação</a>
-                    <a href="#">Fantasia</a>
-                    <a href="#">Drama</a>
-                    <a href="#">Mistério</a>
-                    <a href="#">Thriller</a>
-                    <a href="#">Histórico</a>
-                </div>
-            </li>
-            <li>
-                <a href="comunidade.html">Comunidade</a>
-                <div class="dropdown">
-                    <a href="#">Quiz</a>
-                </div>
-            </li>
-            <li><a href="sobre.html">Sobre</a></li>
-            <li id="loginLink"><a href="login.html">Login</a></li>
-            <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
-            <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
-            <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
-        </ul>
-    </nav>
-</header>  
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+    <header>
+      <a href="index.html">
+        <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+    </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li>
+                    <a href="categorias.html">Categorias</a>
+                    <div class="dropdown">
+                        <a href="acao.html">Ação</a>
+                        <a href="comedia.html">Comédia</a>
+                        <a href="drama.html">Drama</a>
+                        <a href="fantasia.html">Fantasia</a>
+                        <a href="historico.html">Histórico</a>
+                        <a href="misterio.html">Mistério & Suspense</a>
+                        <a href="romance.html">Romance</a>
+                        <a href="ficcao.html">Ficção</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="comunidade.html">Comunidade</a>
+                    <div class="dropdown">
+                      <a href="quiz.html">Quiz</a>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li id="loginLink"><a href="login.html">Login</a></li>
+                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
+            </ul>
+        </nav>
+    </header>  
 
   <main class="form-container">
     <h2>Cadastro</h2>
     <form id="registerForm" novalidate>
       <div class="input-group">
         <label for="registerName">Nome:</label>
-        <input type="text" id="registerName" placeholder="Digite seu nome completo" required>
+        <input type="text" id="registerName" placeholder="Digite seu nome" required>
         <div class="status-message" id="nameStatus" aria-live="polite"></div>
       </div>
       <div class="input-group">
@@ -60,7 +64,7 @@
       </div>
       <div class="input-group">
         <label for="confirmPassword">Confirmar Senha:</label>
-        <input type="password" id="confirmPassword" placeholder="Repita sua senha" required>
+        <input type="password" id="confirmPassword" placeholder="Repita a senha" required>
         <div class="status-message" id="confirmPasswordStatus" aria-live="polite"></div>
       </div>
       <div id="loading-container" class="hidden">

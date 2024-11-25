@@ -10,27 +10,29 @@
 <body>
     <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
     <header>
-        <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+        <a href="index.html">
+            <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+        </a>
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li>
                     <a href="categorias.html">Categorias</a>
                     <div class="dropdown">
-                        <a href="#">Romance</a>
-                        <a href="#">Comédia</a>
-                        <a href="#">Ação</a>
-                        <a href="#">Fantasia</a>
-                        <a href="#">Drama</a>
-                        <a href="#">Mistério</a>
-                        <a href="#">Thriller</a>
-                        <a href="#">Histórico</a>
+                        <a href="acao.html">Ação</a>
+                        <a href="comedia.html">Comédia</a>
+                        <a href="drama.html">Drama</a>
+                        <a href="fantasia.html">Fantasia</a>
+                        <a href="historico.html">Histórico</a>
+                        <a href="misterio.html">Mistério & Suspense</a>
+                        <a href="romance.html">Romance</a>
+                        <a href="ficcao.html">Ficção</a>
                     </div>
                 </li>
                 <li>
                     <a href="comunidade.html">Comunidade</a>
                     <div class="dropdown">
-                        <a href="#">Quiz</a>
+                        <a href="quiz.html">Quiz</a>
                     </div>
                 </li>
                 <li><a href="sobre.html">Sobre</a></li>
@@ -40,57 +42,116 @@
                 <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
             </ul>
         </nav>
-    </header>
-    <!-- Seção Categorias -->
-    <section class="categorias-section">
-        <div class="categorias-grid">
-            <!-- Categorias com classes específicas -->
-            <div class="categoria-item cat-romance">
-                <div class="categoria-content">
-                    <!-- Tornando a imagem clicável -->
-                    <a id="loginLink" href="romance.html">
-                        <img src="assets/img.jpg" alt="Romance" class="categoria-img">
+    </header>  
+
+    <!-- Seção de Doramas de Romance -->
+    <section class="categorias-dorama-section">
+        <h4>Romance</h4>
+        <p>Descubra os doramas mais emocionantes e apaixonantes nesta categoria.</p>
+        <div class="categorias-dorama-grid">
+            <!-- Doramas de romance -->
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama1.html"> <!-- Página do dorama -->
+                        <img src="assets/comedia1.png" alt="Strong Girl Bong-soon" class="categoria-img-dorama">
+                        <h3>Strong Girl Bong-soon</h3>
                     </a>
-                                </div>
-            </div>            
-            <div class="categoria-item cat-comedia">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Comédia" class="categoria-img">
-                                </div>
-            </div>
-            <div class="categoria-item cat-acao">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Ação" class="categoria-img">
-                         </div>
-            </div>
-            <div class="categoria-item cat-fantasia">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Fantasia" class="categoria-img"></div>
-            </div>
-            <div class="categoria-item cat-drama">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Drama" class="categoria-img"></div>
-            </div>
-            <div class="categoria-item cat-misterio">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Mistério" class="categoria-img">
-                
                 </div>
             </div>
-            <div class="categoria-item cat-thriller">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Thriller" class="categoria-img">
-                
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama2.html">
+                        <img src="assets/comedia1.png" alt="Cheese in the Trap" class="categoria-img-dorama">
+                        <h3>Cheese in the Trap</h3>
+                    </a>
                 </div>
             </div>
-            <div class="categoria-item cat-historico">
-                <div class="categoria-content">
-                    <img src="assets/img.jpg" alt="Histórico" class="categoria-img">
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama3.html">
+                        <img src="assets/comedia1.png" alt="Love Alarm" class="categoria-img-dorama">
+                        <h3>Love Alarm</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama4.html">
+                        <img src="assets/comedia1.png" alt="What's Wrong With Secretary Kim" class="categoria-img-dorama">
+                        <h3>What's Wrong With Secretary Kim</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama5.html">
+                        <img src="assets/comedia1.png" alt="Love O2O" class="categoria-img-dorama">
+                        <h3>Love O2O</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama6.html">
+                        <img src="assets/comedia1.png" alt="Romance is a Bonus Book" class="categoria-img-dorama">
+                        <h3>Romance is a Bonus Book</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama7.html">
+                        <img src="assets/comedia1.png" alt="My Shy Boss" class="categoria-img-dorama">
+                        <h3>My Shy Boss</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama8.html">
+                        <img src="assets/comedia1.png" alt="My ID is Gangnam Beauty" class="categoria-img-dorama">
+                        <h3>My ID is Gangnam Beauty</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama9.html">
+                        <img src="assets/comedia1.png" alt="Oh My Ghost" class="categoria-img-dorama">
+                        <h3>Oh My Ghost</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama10.html">
+                        <img src="assets/comedia1.png" alt="While You Were Sleeping" class="categoria-img-dorama">
+                        <h3>While You Were Sleeping</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama11.html">
+                        <img src="assets/comedia1.png" alt="Goblin" class="categoria-img-dorama">
+                        <h3>Goblin</h3>
+                    </a>
+                </div>
+            </div>
+            <!-- Novo dorama de romance -->
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="dorama12.html">
+                        <img src="assets/comedia1.png" alt="Crash Landing on You" class="categoria-img-dorama">
+                        <h3>Crash Landing on You</h3>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
-
+    </section>    
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+</body>
+</html>
     <!-- Rodapé -->
     <footer>
         <div class="box_footer_cabecalho">
@@ -105,8 +166,4 @@
         </div>
         <p>Dev by Paloma</p>
         <p>© 2024 Dramaland - Todos os direitos reservados.</p>
-    </footer> 
-
-    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
-</body>
-</html>
+    </footer>  

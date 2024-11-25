@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DramaLand - Sua Plataforma de Doramas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+    <header>
+        <a href="index.html">
+            <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li>
+                    <a href="categorias.html">Categorias</a>
+                    <div class="dropdown">
+                        <a href="acao.html">Ação</a>
+                        <a href="comedia.html">Comédia</a>
+                        <a href="drama.html">Drama</a>
+                        <a href="fantasia.html">Fantasia</a>
+                        <a href="historico.html">Histórico</a>
+                        <a href="misterio.html">Mistério & Suspense</a>
+                        <a href="romance.html">Romance</a>
+                        <a href="ficcao.html">Ficção</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="comunidade.html">Comunidade</a>
+                    <div class="dropdown">
+                        <a href="quiz.html">Quiz</a>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li id="loginLink"><a href="login.html">Login</a></li>
+                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
+            </ul>
+        </nav>
+    </header>  
+    
+<!-- Seção de Doramas Históricos -->
+<section class="categorias-dorama-section">
+    <h4>Histórico</h4>
+    <p>Doramas que trazem histórias emocionantes ambientadas em épocas passadas, com figurinos e cenários deslumbrantes.</p>
+    <div class="categorias-dorama-grid">
+        <!-- Doramas históricos -->
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico1.html">
+                    <img src="assets/moon_lover.png" alt="Moon Lovers" class="categoria-img-dorama">
+                    <h3>Moon Lovers</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico2.html">
+                    <img src="assets/empress_ki.png" alt="Empress Ki" class="categoria-img-dorama">
+                    <h3>Empress Ki</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico3.html">
+                    <img src="assets/the_crowned_clown.png" alt="The Crowned Clown" class="categoria-img-dorama">
+                    <h3>The Crowned Clown</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico4.html">
+                    <img src="assets/mr_sunshine.png" alt="Mr. Sunshine" class="categoria-img-dorama">
+                    <h3>Mr. Sunshine</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico5.html">
+                    <img src="assets/hwarang.png" alt="Hwarang" class="categoria-img-dorama">
+                    <h3>Hwarang</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico6.html">
+                    <img src="assets/arang_and_the_magistrate.png" alt="Arang and the Magistrate" class="categoria-img-dorama">
+                    <h3>Arang and the Magistrate</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico7.html">
+                    <img src="assets/the_red_sleeve.png" alt="The Red Sleeve" class="categoria-img-dorama">
+                    <h3>The Red Sleeve</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico8.html">
+                    <img src="assets/queen_for_seven_days.png" alt="Queen for Seven Days" class="categoria-img-dorama">
+                    <h3>Queen for Seven Days</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico9.html">
+                    <img src="assets/jewel_in_the_palace.png" alt="Jewel in the Palace" class="categoria-img-dorama">
+                    <h3>Jewel in the Palace</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico10.html">
+                    <img src="assets/love_in_the_moonlight.png" alt="Love in the Moonlight" class="categoria-img-dorama">
+                    <h3>Love in the Moonlight</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico11.html">
+                    <img src="assets/the_great_seer.png" alt="The Great Seer" class="categoria-img-dorama">
+                    <h3>The Great Seer</h3>
+                </a>
+            </div>
+        </div>
+        <div class="categoria-item-dorama">
+            <div class="categoria-content-dorama">
+                <a href="historico12.html">
+                    <img src="assets/six_flying_dragons.png" alt="Six Flying Dragons" class="categoria-img-dorama">
+                    <h3>Six Flying Dragons</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+</body>
+</html>
+    <!-- Rodapé -->
+    <footer>
+        <div class="box_footer_cabecalho">
+            <div class="box_footer_redes">
+                <a href="https://www.linkedin.com/in/paloma-santos-dias/" class="social_icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/PalomaInCode" class="social_icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <p>Dev by Paloma</p>
+        <p>© 2024 Dramaland - Todos os direitos reservados.</p>
+    </footer>  

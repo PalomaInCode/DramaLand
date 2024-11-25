@@ -84,3 +84,45 @@ document.addEventListener("DOMContentLoaded", function() {
         updateSlider(nextIndex);
     }, 3000); // Trocar de slide a cada 5 segundos
 });
+
+// Adiciona evento ao botão para aplicar filtros
+document.addEventListener("DOMContentLoaded", () => {
+    const botaoFiltros = document.getElementById("aplicarFiltros");
+    botaoFiltros.addEventListener("click", () => {
+        const genero = document.getElementById("filtroGenero").value;
+        const nota = document.getElementById("filtroNota").value;
+
+        console.log(`Filtros aplicados:\nGênero: ${genero}\nNota: ${nota}`);
+        alert(`Filtros aplicados:\nGênero: ${genero}\nNota: ${nota}`);
+    });
+});
+
+// Simulação de busca de dramas
+const dramas = [
+    { name: "Goblin", genre: "Fantasia", country: "Coreia do Sul" },
+    { name: "Vincenzo", genre: "Ação", country: "Coreia do Sul" },
+    { name: "Itaewon Class", genre: "Drama", country: "Coreia do Sul" },
+    { name: "Hotel Del Luna", genre: "Fantasia", country: "Coreia do Sul" },
+  ];
+  
+  const searchBar = document.getElementById("searchBar");
+  const searchResults = document.getElementById("searchResults");
+  
+  searchBar.addEventListener("input", () => {
+    const query = searchBar.value.toLowerCase();
+    const filteredDramas = dramas.filter(drama => 
+      drama.name.toLowerCase().includes(query) || 
+      drama.genre.toLowerCase().includes(query) ||
+      drama.country.toLowerCase().includes(query)
+    );
+  
+    // Exibir resultados
+    searchResults.innerHTML = "";
+    filteredDramas.forEach(drama => {
+      const div = document.createElement("div");
+      div.textContent = `${drama.name} - ${drama.genre} (${drama.country})`;
+      div.style.padding = "5px";
+      searchResults.appendChild(div);
+    });
+  });
+  

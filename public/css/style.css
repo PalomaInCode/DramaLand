@@ -8,7 +8,6 @@
 }
 
 body {
-    min-height: 100vh;
     background: linear-gradient(#ffffff, #e7e7e752);
     color: #333;
 }
@@ -63,22 +62,6 @@ header ul li a:hover,
 header ul li a.active {
     background: #ED1F8F;
     color: white;
-}
-
-#btn {
-    text-decoration: none;
-    display: inline-block;
-    padding: 1vw 2vw;
-    border-radius: 2vw;
-    background: #ED1F8F;
-    color: white;
-    font-size: 1vw;
-    z-index: 9;
-    transition: background 0.3s ease;
-}
-
-#btn:hover {
-    background: #ed1f9091;
 }
 
 /* Secção de conteúdo adicional */
@@ -171,11 +154,11 @@ header ul li:hover .dropdown {
     background: #ed1f9091;
 }
 
-section.categoria  {
+section.categoria {
     background-color: #dedede5e;
     position: relative;
     width: 100%;
-    height: 50vw;
+    height: 60vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -183,29 +166,43 @@ section.categoria  {
     text-align: center;
 }
 
-section.categoria  h3{
-    font-size: 2vw;
+section.categoria h3 {
+    font-size: 1.5vw;
+    font-weight:bolder;
 }
 
-section.categoria  p{
+section.categoria p {
     font-size: 1vw;
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 1rem;
+}
+
 .card .explore-btn {
+    display: inline-block;
     text-decoration: none;
-    padding: 0.9vw 3vw;
+    padding: 0.5vw 1vw;
     border-radius: 2vw;
     background: #ed1f9091;
     color: white;
     font-size: 1vw;
-    transition: background 0.3s ease;
-    min-width: 10px;
-    max-width: none;
+    margin: 1vw auto; /* Centralizando sem deslocar */
+    text-align: center;
+    width: 60%;
+    box-sizing: border-box;
+    /* Removido transition */
 }
 
-section.categoria #btn:hover {
-    background: #ED1F8F;
+.card .explore-btn:hover {
+    background: #ed1f90;
 }
+
 
 .categoria-item .a {
     padding-top: 6vw;
@@ -246,9 +243,8 @@ section.categoria #btn:hover {
   
   /* Efeito hover nos cartões */
   .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-1px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    flex-wrap: wrap;
   }
   
   /* Estilos específicos para a seção de categorias */
@@ -257,16 +253,16 @@ section.categoria #btn:hover {
     display: flex;
     justify-content: center;
   }
+
   .categorias {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    
   /* Estilos para os elementos dentro dos cartões */
   .card h3 {
-    font-size: 1.0vw;
+    font-size: 0.9vw;
     justify-content: center;
     margin-bottom: 0.5vw;
     color: #ED1F8F;
@@ -295,6 +291,8 @@ section.categoria #btn:hover {
 
 .caption h1 {
     font-size: 2vw;
+    color: #ffffff;
+    font-weight: bolder;
 }
 
 .caption p {
@@ -463,7 +461,7 @@ footer hr {
 }
 
 .footer_final a:hover {
-    color: #f8f8f8; /* Cor de destaque no hover */
+    color: #f8f8f8; 
 }
 
 .categorias-section {
@@ -498,6 +496,7 @@ footer hr {
 .categoria-item:hover {
     transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Intensifica a sombra */
+    color: #3d3d3d;
 }
 
 .categoria-content {
@@ -516,24 +515,618 @@ footer hr {
     justify-content: center;
     align-items: center;
     height: 28vw;
+    width: 100%; /* Garantir que a imagem ocupe 100% da largura do container */
     object-fit: cover;
     border-radius: 15px; /* Bordas arredondadas nas imagens */
-    filter: brightness(0.5);
+    transition: filter 0.3s ease; /* Transição para o efeito de escurecimento */
 }
 
-.categoria-item cat-comedia {
-    height: 5vw;
+.categoria-img img {
+    width: 100%; /* A imagem ocupa 100% do tamanho da div */
+    height: 100%; /* Garantindo que a imagem ocupe toda a altura */
+    object-fit: cover; /* A imagem se adapta à área sem distorcer */
+    transition: filter 0.3s ease; /* Transição para o efeito de escurecimento */
+}
+
+.categoria-img:hover img {
+    filter: brightness(0.5); /* Escurece a imagem ao passar o mouse */
 }
 
 .categoria-item h3 {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centraliza o título */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
-    font-size: 1.5em;
+    font-size: 1.6vw;
     font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.705);
     margin: 0;
     z-index: 2; /* Garante que o texto fique acima da imagem */
+    transition: opacity 0.3s ease; /* Transição para ocultar o texto */
 }
+/* Estilo do título */
+.categorias-dorama-section h3 {
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* CSS para o grid de categorias */
+.categorias-dorama-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 colunas flexíveis */
+    gap: 3vw;
+    padding: 5vw;
+}
+
+.categoria-item-dorama {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 200px; /* Largura fixa */
+    height: 300px; /* Altura fixa */
+}
+
+.categoria-img-dorama {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.categoria-item-dorama:hover .categoria-img-dorama {
+    transform: scale(1.05); /* Pequena ampliação da imagem ao passar o mouse */
+}
+
+.categoria-item-dorama::after {
+    content: ""; /* Cria o "overlay" */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ed1f904b; /* Cor preta com opacidade */
+    z-index: 1; /* Garante que o overlay fique atrás do título */
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Inicialmente invisível */
+}
+
+.categoria-item-dorama:hover::after {
+    opacity: 0.8; /* Aparece ao passar o mouse */
+}
+
+.categoria-item-dorama h3 {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+    z-index: 2; /* Garante que o título fique acima do overlay */
+}
+
+.categorias-dorama-section {
+    display: flex; /* Torna o contêiner um flexbox */
+    flex-direction: column; /* Organiza os filhos em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    padding-top: 8vw; /* Espaço superior ajustado para evitar sobreposição com a navbar */
+}
+
+.categorias-dorama-section h4 {
+    font-size: 2vw; /* Tamanho responsivo do título */
+    color: #ED1F8F; /* Cor do texto */
+    margin: 0; /* Remove margens padrão */
+    text-align: center; /* Centraliza o texto */
+}
+
+.categorias-dorama-section p {
+    font-size: 1.2vw; /* Tamanho responsivo do parágrafo */
+    color: #555; /* Cor complementar */
+    margin-top: 1vw; /* Espaçamento entre o título e o parágrafo */
+    text-align: center; /* Centraliza o texto */
+}
+
+.categoria-item-dorama a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.categoria-item-dorama {
+    position: relative; /* Necessário para posicionar o overlay */
+}
+
+/* Estilos para estrelas */
+.estrelas {
+    position: absolute;
+    bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.5em;
+    color: #ffd700; /* Cor dourada das estrelas */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.categoria-item-dorama:hover .estrelas {
+    opacity: 1; /* Aparece as estrelas no hover */
+}
+
+.categoria-item-dorama .estrela {
+    cursor: pointer;
+}
+
+/* Quando o texto some e as estrelas aparecem */
+.categoria-item h3 {
+    opacity: 1;
+}
+
+.categoria-item:hover h3 {
+    opacity: 0; /* Esconde o texto no hover */
+}
+
+/* Sessão QUIZ */
+.quiz-container {
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 25%;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.quiz-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.quiz-card {
+    width: 250px;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s ease;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px) rotate(3deg);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.quiz-details {
+    padding: 15px;
+}
+
+.quiz-details h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.quiz-details p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #6c757d;
+}
+
+.quiz-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.success-rate {
+    font-size: 14px;
+    color: #ed1f90;
+}
+
+.play-btn {
+    background: none;
+    border: none;
+    color: #ed1f90;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.play-btn:hover {
+    color: #ffffff;
+}
+
+.add-new {
+    background: #f8f9fa;
+    border: 2px dashed #ced4da;
+    color: #6c757d;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.add-new:hover {
+    background: #e9ecef;
+    color: #495057;
+}
+
+.add-new span {
+    font-size: 40px;
+}
+#quizForm {
+    display: none;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#quizForm input, #quizForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#quizForm button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#quizForm button:hover {
+    background-color: #0056b3;
+}
+
+.quiz-section {
+    position: relative;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    padding: 10%;
+}
+
+.quiz-section.active {
+    left: 0;
+}
+
+.quiz-section .quiz-box {
+    position: relative;
+    width: 50vw;
+    background: transparent;
+    border: 0.19vw solid #ed1f90;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 2vw;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 3vw;
+}
+
+.quiz-box h1 {
+    color: #ffffff;
+    font-size: 1.5vw;
+    text-align: center;
+    background: linear-gradient(50deg, transparent, #ed1f90, transparent);
+    border-radius: 1vw;
+}
+
+.quiz-box .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw 0;
+    border-bottom: 0.2vw solid #ed1f90;
+}
+
+.quiz-header span {
+    font-size: 1vw;
+    font-weight: 600;
+}
+
+.quiz-header .header-score {
+    background: #ED1F8F;
+    border-radius: 3px;
+    padding: 7px;
+    color: #ffffff;
+}
+
+.quiz-box .question-text {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.option-list .option {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid rgba(225, 225, 225, 2);
+    border-radius: 3px;
+    font-size: 17px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.option-list .option:hover {
+    background: #ff00ea2a;
+    border-color: #ff00ea2a;
+}
+
+.quiz-box .quiz-footer {
+    display: fl;
+}
+
+/* Container externo para garantir o comportamento do centro */
+.outer-container {
+    display: flex;
+    justify-content: center; /* Alinha horizontalmente ao centro */
+    align-items: center; /* Alinha verticalmente ao centro */
+    height: 100vh; /* Usa 100% da altura da tela */
+    padding-bottom: 20px; /* Para garantir que o footer não sobreponha o conteúdo */
+    flex-direction: column;
+    background-color: #f0f0f0; /* Cor de fundo leve para a tela */
+  }
+  
+  /* Container principal com margem de 20% */
+  .container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%; /* Largura de 80% da tela para a área do quiz */
+    max-width: 700px; /* Limita a largura máxima */
+    margin: 20% auto; /* Margin de 20% em cima e embaixo, e centraliza horizontalmente */
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 2px solid #e0e0e0; /* Borda suave ao redor */
+    margin-top: 25%;
+  }
+  
+  /* Título */
+  h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 0.5vw;
+  }
+
+  .container p {
+    font-size: 1vw;
+    font-style: italic;
+    font-weight: 600;
+    color: #ed1f90b1;
+    margin-bottom: 0.5vw;
+  }
+  
+  /* Estilo para as perguntas */
+  .question {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #444;
+  }
+  
+  /* Estilo para as opções */
+  .options {
+    margin-bottom: 20px;
+  }
+  
+  .option {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: ##333;
+  }
+  
+  /* Estilo para os botões */
+  .button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #ff61a6; /* Rosa suave */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 10px 0;
+  }
+  
+  .button:hover {
+    background-color: #f55d9e; /* Rosa mais forte ao passar o mouse */
+    transform: scale(1.05);
+  }
+  
+  /* Resultado */
+  .result {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+  }
+
+  #quiz {
+    margin-bottom: 20px;
+  }
+  
+  .question {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Estilo do resultado */
+  #result {
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  #result p {
+    margin: 5px 0;
+  }
+  
+  /* Estilos dos botões */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff61a560;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff61a5;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button#retry {
+    display: none;
+  }
+  
+  button#next {
+    display: none;
+  }
+  
+  /* Exibir e esconder botões */
+  #retry {
+    display: none;
+  }
+  
+  #next {
+    display: none;
+  }
+/* Contêiner das opções - coloca as opções em uma coluna */
+.options-container {
+    display: flex;
+    flex-direction: column; /* Coloca os elementos um embaixo do outro */
+    gap: 10px; /* Espaço entre as opções */
+}
+
+/* Estilo da opção */
+.option {
+    display: flex; /* Flexbox para alinhar o texto e o radio */
+    align-items: center;
+    border: 2px solid #aeaeae39;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efeito hover para a div inteira */
+.option:hover {
+    border-color: #ff61a6;
+    background-color: #ff61a560; /* Cor rosa ao passar o mouse */
+}
+
+/* Estilo do radio */
+.option input[type="radio"] {
+    -webkit-appearance: none; /* Remove o estilo padrão */
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aeaeae39;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Estilo do círculo interno do radio quando desmarcado */
+.option input[type="radio"]:not(:checked) {
+    background-color: white;
+    border-color: #aeaeae39;
+}
+
+/* Estilo do círculo interno do radio quando marcado */
+.option input[type="radio"]:checked {
+    background-color: #ff61a560; /* Cor rosa quando marcado */
+    border-color: #ff61a560;
+}
+
+/* Efeito hover no botão de rádio */
+.option input[type="radio"]:hover {
+    border-color: #ff61a560; /* Cor rosa ao passar o mouse */
+}
+
+/* Estilo para o texto dentro da opção */
+.option span {
+    display: inline-block;
+    transition: all 0.3s ease;
+    color: #333; /* Cor do texto */
+    padding: 5px;
+}
+
+/* Manter o fundo rosa e o texto branco após o clique */
+.option.selected {
+    background-color: #ff61a560; /* Fica rosa após o clique */
+}
+
+.option.selected span {
+    color: rgb(255, 255, 255); /* Cor do texto */
+}
+#result {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  canvas {
+    width: 80%; /* Ajusta a largura do gráfico */
+    max-width: 500px; /* Limita o tamanho máximo do gráfico */
+    margin-top: 20px; /* Espaço entre o texto e o gráfico */
+  }
+  .question-image {
+    width: 100%; /* Defina o tamanho conforme necessário */
+    height: 200px; /* Ajuste conforme o tamanho da imagem */
+    border-radius: 1.2vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 2vw;
+  }

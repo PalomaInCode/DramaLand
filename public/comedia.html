@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DramaLand - Sua Plataforma de Doramas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+    <header>
+        <a href="index.html">
+            <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li>
+                    <a href="categorias.html">Categorias</a>
+                    <div class="dropdown">
+                        <a href="acao.html">Ação</a>
+                        <a href="comedia.html">Comédia</a>
+                        <a href="drama.html">Drama</a>
+                        <a href="fantasia.html">Fantasia</a>
+                        <a href="historico.html">Histórico</a>
+                        <a href="misterio.html">Mistério & Suspense</a>
+                        <a href="romance.html">Romance</a>
+                        <a href="ficcao.html">Ficção</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="comunidade.html">Comunidade</a>
+                    <div class="dropdown">
+                        <a href="quiz.html">Quiz</a>
+                    </div>
+                </li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li id="loginLink"><a href="login.html">Login</a></li>
+                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
+                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
+            </ul>
+        </nav>
+    </header>  
+
+    <!-- Seção de Doramas de Comédia -->
+    <section class="categorias-dorama-section">
+        <h4>Comédia</h4>
+        <p>Explore os doramas mais engraçados e cativantes nesta categoria.</p>
+        <div class="categorias-dorama-grid">
+            <!-- Doramas de comédia -->
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia1.html"> <!-- Página do dorama -->
+                        <img src="assets/comedia1.png" alt="Welcome to Waikiki" class="categoria-img-dorama">
+                        <h3>Welcome to Waikiki</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="catalogo/comedia2.html">
+                        <img src="assets/comedia1.png" alt="Strong Woman Do Bong-soon" class="categoria-img-dorama">
+                        <h3>Strong Woman Do Bong-soon</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia3.html">
+                        <img src="assets/comedia1.png" alt="The Sound of Your Heart" class="categoria-img-dorama">
+                        <h3>The Sound of Your Heart</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia4.html">
+                        <img src="assets/comedia1.png" alt="Modern Farmer" class="categoria-img-dorama">
+                        <h3>Modern Farmer</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia5.html">
+                        <img src="assets/comedia1.png" alt="High Kick!" class="categoria-img-dorama">
+                        <h3>High Kick!</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia6.html">
+                        <img src="assets/comedia1.png" alt="Eulachacha Waikiki 2" class="categoria-img-dorama">
+                        <h3>Eulachacha Waikiki 2</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia7.html">
+                        <img src="assets/comedia1.png" alt="Shopaholic Louis" class="categoria-img-dorama">
+                        <h3>Shopaholic Louis</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia8.html">
+                        <img src="assets/comedia1.png" alt="Go Back Couple" class="categoria-img-dorama">
+                        <h3>Go Back Couple</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia9.html">
+                        <img src="assets/comedia1.png" alt="Rooftop Prince" class="categoria-img-dorama">
+                        <h3>Rooftop Prince</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia10.html">
+                        <img src="assets/comedia1.png" alt="Fantastic" class="categoria-img-dorama">
+                        <h3>Fantastic</h3>
+                    </a>
+                </div>
+            </div>
+            <!-- Novo dorama de comédia -->
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia11.html">
+                        <img src="assets/comedia1.png" alt="My Love From the Star" class="categoria-img-dorama">
+                        <h3>My Love From the Star</h3>
+                    </a>
+                </div>
+            </div>
+            <!-- Novo dorama de comédia -->
+            <div class="categoria-item-dorama">
+                <div class="categoria-content-dorama">
+                    <a href="comedia12.html">
+                        <img src="assets/comedia1.png" alt="Weightlifting Fairy Kim Bok-joo" class="categoria-img-dorama">
+                        <h3>Weightlifting Fairy Kim Bok-joo</h3>
+                    </a>
+                </div>
+            </div>
+    </section>    
+       
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+</body>
+</html>
+    <!-- Rodapé -->
+    <footer>
+        <div class="box_footer_cabecalho">
+            <div class="box_footer_redes">
+                <a href="https://www.linkedin.com/in/paloma-santos-dias/" class="social_icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/PalomaInCode" class="social_icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <p>Dev by Paloma</p>
+        <p>© 2024 Dramaland - Todos os direitos reservados.</p>
+    </footer>  
