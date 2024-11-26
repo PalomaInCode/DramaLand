@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil - Dramaland</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashstyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar (barra de navegação) -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>Dramaland</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="perfil.html" onclick="changePage('profile')" >Página Inicial</a></li>
+                    <li><a href="editarPerfil.html" class="active">Editar Perfil</a></li>
+                    <li><a href="#" onclick="logout()">Sair</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h2>Bem-vinda, <span id="profileNameDisplay">Fã Oficial de Doramas</span></h2>
+                    <input type="text" id="searchInput" placeholder="Buscar seu drama favorito..." oninput="searchDrama()">
+                </div>
+                <div class="profile" onclick="openPhotoModal()">
+                    <img id="profilePic" src="https://via.placeholder.com/45" alt="Avatar">
+                </div>
+            </header>
+
+            <!-- Profile Section (Editar Perfil) -->
+            <section id="profile" class="content-section active">
+                <h3>Editar Perfil</h3>
+                <form id="editProfileForm" onsubmit="saveProfile(event)">
+                    <div class="form-group">
+                        <label for="profileName">Nome</label>
+                        <input type="text" id="profileName" placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastDrama">Último Drama Assistido</label>
+                        <input type="text" id="lastDrama" placeholder="Título do último drama">
+                    </div>
+                    <div class="form-group">
+                        <label for="favorites">Quantidade de Favoritos</label>
+                        <input type="number" id="favorites" placeholder="Número de favoritos">
+                    </div>
+                    <div class="form-group">
+                        <label for="genresWatched">Gêneros Mais Assistidos</label>
+                        <input type="text" id="genresWatched" placeholder="Romance, Comédia, Drama">
+                    </div>
+                    <div class="form-group">
+                        <label for="countWatched">Quantidade de Dramas Assistidos</label>
+                        <input type="text" id="countWatched" placeholder="Número de dramas assistidos por mês">
+                    </div>
+                    <button class="button" type="submit">Salvar Perfil</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para adicionar foto -->
+    <div id="photoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePhotoModal()">&times;</span>
+            <h2>Escolha uma foto para o perfil</h2>
+            <input type="file" id="profilePicInput" onchange="changeProfilePic()">
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            alert("Você foi desconectado!");
+            window.location.href = "login.html";
+        }
+
+        function searchDrama() {
+            const searchQuery = document.getElementById("searchInput").value.toLowerCase();
+            console.log("Buscando por:", searchQuery);
+        }
+
+        async function saveProfile(event) {
+            event.preventDefault();  // Impede o envio do formulário
+
+            const profileName = document.getElementById('profileName').value;
+            const lastDrama = document.getElementById('lastDrama').value;
+            const favorites = document.getElementById('favorites').value;
+            const genresWatched = document.getElementById('genresWatched').value.split(',');
+            const countWatched = document.getElementById('countWatched').value.split(',').map(Number);
+
+            const profileData = {
+                name: profileName || 'Fã Oficial de Doramas',
+                lastDrama: lastDrama || 'Nenhum drama assistido',
+                favorites: favorites || 0,
+                genres: genresWatched.map(g => g.trim()),
+                countWatched: countWatched,
+            };
+
+            // Atualiza a exibição de informações no painel
+            document.getElementById('profileNameDisplay').textContent = profileData.name;
+
+            // Salva o perfil no localStorage
+            localStorage.setItem('profileData', JSON.stringify(profileData));
+
+            alert('Perfil salvo com sucesso!');
+        }
+
+        function openPhotoModal() {
+            document.getElementById('photoModal').style.display = 'block';
+        }
+
+        function closePhotoModal() {
+            document.getElementById('photoModal').style.display = 'none';
+        }
+
+        function changeProfilePic() {
+            const file = document.getElementById('profilePicInput').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePic').src = e.target.result;
+                    closePhotoModal();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Carregar dados do perfil se houver
+        const savedProfile = JSON.parse(localStorage.getItem('profileData'));
+        if (savedProfile) {
+            document.getElementById('profileNameDisplay').textContent = savedProfile.name;
+        }
+    </script>
+</body>
+</html>

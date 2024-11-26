@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DramaLand - Sua Plataforma de Doramas</title>
+    <title>Sobre - DramaLand</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+
     <header>
         <a href="index.html">
             <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
@@ -16,49 +17,64 @@
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
-                <li>
-                    <a href="categorias.html">Categorias</a>
-                    <div class="dropdown">
-                        <a href="acao.html">Ação</a>
-                        <a href="comedia.html">Comédia</a>
-                        <a href="drama.html">Drama</a>
-                        <a href="fantasia.html">Fantasia</a>
-                        <a href="historico.html">Histórico</a>
-                        <a href="misterio.html">Mistério & Suspense</a>
-                        <a href="romance.html">Romance</a>
-                        <a href="ficcao.html">Ficção</a>
-                    </div>
-                </li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="categorias.html">Categorias</a></li>
+                <li><a href="sobre.html" class="active">Sobre</a></li>
                 <li id="loginLink"><a href="login.html">Login</a></li>
-                <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
-                <li id="perfilLink" style="display: none;"><a href="#">Perfil</a></li>
-                <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
+                <li id="cadastroLink"><a href="cadastro.html">Cadastro</a></li>
+                <li id="quizLink" style="display: none;"><a href="quiz.html">Quiz</a></li>
+                <li id="perfilLink" style="display: none;"><a href="perfil.html">Perfil</a></li>
+                <li id="sairLink" style="display: none;"><a href="login.html" onclick="sair()">Sair</a></li>
             </ul>
         </nav>
-    </header>   
+    </header>
+
+    <section class="sobre-section">
+        <h1 class="sobre-title">Sobre a DramaLand</h1>
     
-    <section>
-        <h1>Dramas em Alta</h1>
-        <p>Confira os dramas mais populares no momento!</p>
+        <img src="assets/paloma.jpg" alt="Paloma Santos Dias" class="profile-img"> <!-- Sua foto de perfil -->
+    
+        <p class="sobre-text">Bem-vindo à DramaLand, um espaço dedicado aos doramas que têm um lugar especial na minha vida. Através dessa plataforma, espero compartilhar minha paixão por essas incríveis produções e inspirar outros a descobrirem esse mundo fascinante.</p>
+    
+        <h2 class="sobre-subtitle">Minha História com Doramas</h2>
+    
+        <p class="sobre-text">Os doramas têm sido uma parte importante da minha vida, especialmente em momentos desafiadores. Durante a pandemia, quando me sentia perdida e sozinha, encontrei nos doramas um refúgio. Eles me permitiram escapar por algumas horas da realidade difícil que vivíamos, trazendo não apenas entretenimento, mas também aprendizados e reflexões sobre a vida, a amizade e o amor.</p>
+    
+        <p class="sobre-text">Essa paixão por doramas me ajudou a perceber a importância de valorizar a vida, mesmo nos momentos mais sombrios. Hoje, sou grata por esses momentos de consolo que as histórias de doramas proporcionaram. Eles me ensinaram sobre perseverança, resiliência e a importância de olhar para o futuro com esperança.</p>
+    
+        <h2 class="sobre-subtitle">O Valor da Vida e Como os Doramas Ajudaram</h2>
+    
+        <p class="sobre-text">A pandemia trouxe muitos desafios emocionais, e foi nesse período que enfrentei momentos de depressão. A sensação de isolamento era avassaladora, e me vi muitas vezes sem forças para continuar. Mas os doramas foram um alicerce, proporcionando consolo e compreensão durante as noites solitárias. Eles me ajudaram a relembrar que a vida, embora difícil, é cheia de momentos valiosos e significativos. Cada história nos ensina algo, e cada dorama que assisti durante aquele período me trouxe novas perspectivas e força para seguir em frente.</p>
+    
+        <p class="sobre-text">Foi através dos doramas que encontrei um sentido renovado para a vida. A jornada dos personagens, com suas lutas e vitórias, refletiu a minha própria busca por superação. Hoje, sei que os doramas não são apenas entretenimento; eles são uma forma de cura e de conexão.</p>
+    
+        <h2 class="sobre-subtitle">Telefones de Ajuda para Valorização da Vida</h2>
+    
+        <p class="sobre-text">Se você está passando por momentos difíceis e sente que precisa de ajuda, saiba que você não está sozinho. Aqui estão alguns números e serviços de apoio que podem fazer a diferença:</p>
+    
+        <ul class="help-list">
+            <li><strong>CVV - Centro de Valorização da Vida</strong>: 188 (disponível 24 horas, atendimento gratuito e sigiloso)</li>
+            <li><strong>Disque 100</strong>: Para denúncias e apoio em situações de abuso ou violência</li>
+            <li><strong>WhatsApp do CVV</strong>: Envie uma mensagem para o número <strong>188</strong> e receba suporte por texto</li>
+        </ul>
+    
+        <p class="sobre-text">A vida é preciosa, e existem pessoas dispostas a ajudar. Não tenha vergonha de buscar apoio quando precisar.</p>
     </section>
+    
 
-        <!-- Rodapé -->
-        <footer>
-            <div class="box_footer_cabecalho">
-                <div class="box_footer_redes">
-                    <a href="https://www.linkedin.com/in/paloma-santos-dias/" class="social_icon">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/PalomaInCode" class="social_icon">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
+    <!-- Rodapé -->
+    <footer>
+        <div class="box_footer_cabecalho">
+            <div class="box_footer_redes">
+                <a href="https://www.linkedin.com/in/paloma-santos-dias/" class="social_icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/PalomaInCode" class="social_icon">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
-            <p>Dev by Paloma</p>
-            <p>© 2024 Dramaland - Todos os direitos reservados.</p>
-        </footer>  
-
+        </div>
+        <p>Dev by Paloma</p>
+        <p>© 2024 DramaLand - Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>

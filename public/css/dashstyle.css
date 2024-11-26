@@ -276,37 +276,35 @@ body {
 
 /* Modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
     padding-top: 60px;
-    overflow: auto;
 }
-
-/* Conteúdo do Modal */
 .modal-content {
-    background-color: #fff;
+    background-color: #fefefe;
     margin: 5% auto;
-    padding: 30px;
+    padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 500px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
-
-/* Título do Modal */
-.modal-content h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 24px;
-    color: #333;
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Formulário dentro do Modal */
@@ -366,4 +364,29 @@ body {
 
 .form-actions button:hover {
     opacity: 0.8;
+}
+
+/* Estilo do botão */
+.button {
+    background-color: #f55d9e; /* Cor de fundo azul */
+    color: white; /* Cor do texto em branco */
+    border: none; /* Remover borda */
+    padding: 12px 24px; /* Espessura e largura do botão */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Peso da fonte */
+    border-radius: 8px; /* Bordas arredondadas */
+    cursor: pointer; /* Aparece como um cursor de mão */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Efeito de transição suave */
+}
+
+/* Estilo ao passar o mouse (hover) */
+.button:hover {
+    background-color: #f55d9e; /* Cor de fundo muda para rosa claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra no botão */
+}
+
+/* Efeito quando o botão está em foco */
+.button:focus {
+    outline: none; /* Remove o contorno padrão */
+    box-shadow: #f55d9e; /* Adiciona um contorno suave ao botão quando em foco */
 }

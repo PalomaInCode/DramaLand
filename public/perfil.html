@@ -17,8 +17,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active" onclick="changePage('home')">Página Inicial</a></li>
-                    <li><a href="#" onclick="changePage('profile')">Editar Perfil</a></li>
+                    <li><a href="perfil.html" class="active" onclick="changePage('home')">Página Inicial</a></li>
+                    <li><a href="editarPerfil.html" onclick="changePage('profile')">Editar Perfil</a></li>
                     <li><a href="#" onclick="logout()">Sair</a></li>
                 </ul>
             </nav>
@@ -29,12 +29,11 @@
             <!-- Header -->
             <header class="header">
                 <div class="header-left">
-                    <h2>Bem-vinda, </h2>
+                    <h2>Bem-vinda, <span id="profileNameDisplay">Fã Oficial de Doramas</span></h2>
                     <input type="text" id="searchInput" placeholder="Buscar seu drama favorito..." oninput="searchDrama()">
                 </div>
-                <div class="profile" onclick="changePage('profile')">
+                <div class="profile" onclick="openPhotoModal()">
                     <img id="profilePic" src="https://via.placeholder.com/45" alt="Avatar">
-                    <span id="profileNameDisplay">Fã Oficial de Doramas</span>
                 </div>
             </header>
 
@@ -42,16 +41,16 @@
             <section id="home" class="content-section active">
                 <div class="dashboard-cards">
                     <div class="card">
-                        <h3>Último Drama Assistido</h3>
+                        <h3>Último Dorama Assistido</h3>
                         <p id="lastWatchedDrama">Ep. 10 - A Despedida</p>
                     </div>
                     <div class="card">
                         <h3>Favoritos</h3>
-                        <p id="favoritesCount">10 dramas na lista de favoritos</p>
+                        <p id="favoritesCount">10 doramas na lista</p>
                     </div>
                     <div class="card">
                         <h3>Próximos Episódios</h3>
-                        <p id="nextEpisode">Assista o próximo episódio amanhã!</p>
+                        <p id="nextEpisode">Episódio 12 de True Beauty Pendente</p>
                     </div>
                 </div>
 
@@ -65,42 +64,16 @@
                         <h3>Quantidade de Dramas Assistidos</h3>
                         <canvas id="countChart"></canvas>
                     </div>
+                    <div class="chart-container">
+                        <h3>Episódios Assistidos ao Longo do Tempo</h3>
+                        <canvas id="episodesChart"></canvas>
+                    </div>
                 </div>
-            </section>
-
-            <!-- Profile Section -->
-            <section id="profile" class="content-section">
-                <h3>Editar Perfil</h3>
-                <form id="editProfileForm">
-                    <div class="form-group">
-                        <label for="profileName">Nome</label>
-                        <input type="text" id="profileName" placeholder="Seu nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastDrama">Último Drama Assistido</label>
-                        <input type="text" id="lastDrama" placeholder="Título do último drama">
-                    </div>
-                    <div class="form-group">
-                        <label for="favorites">Quantidade de Favoritos</label>
-                        <input type="number" id="favorites" placeholder="Número de favoritos">
-                    </div>
-                    <div class="form-group">
-                        <label for="genresWatched">Gêneros Mais Assistidos (separados por vírgula)</label>
-                        <input type="text" id="genresWatched" placeholder="Romance, Comédia, Drama">
-                    </div>
-                    <div class="form-group">
-                        <label for="countWatched">Quantidade de Dramas Assistidos</label>
-                        <input type="text" id="countWatched" placeholder="Número de dramas assistidos por mês">
-                    </div>
-                    <button type="button" onclick="saveProfile()">Salvar Perfil</button>
-                </form>
             </section>
         </main>
     </div>
 
     <script>
-        const apiEndpoint = "https://seu-servidor.com/api/profile"; // Substitua pelo endpoint do seu backend.
-
         function changePage(pageId) {
             document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
@@ -116,7 +89,9 @@
             console.log("Buscando por:", searchQuery);
         }
 
-        async function saveProfile() {
+        async function saveProfile(event) {
+            event.preventDefault();  // Impede o envio do formulário
+
             const profileName = document.getElementById('profileName').value;
             const lastDrama = document.getElementById('lastDrama').value;
             const favorites = document.getElementById('favorites').value;
@@ -131,25 +106,19 @@
                 countWatched: countWatched,
             };
 
-            try {
-                const response = await fetch(apiEndpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(profileData),
-                });
+            // Atualiza a exibição de informações no painel
+            document.getElementById('lastWatchedDrama').textContent = profileData.lastDrama;
+            document.getElementById('favoritesCount').textContent = `${profileData.favorites} dramas na lista de favoritos`;
 
-                if (!response.ok) throw new Error('Erro ao salvar os dados no servidor');
+            // Salva o perfil no localStorage
+            localStorage.setItem('profileData', JSON.stringify(profileData));
 
-                alert('Perfil salvo com sucesso!');
-                updateCharts(profileData);
-            } catch (error) {
-                console.error(error);
-                alert('Ocorreu um erro ao salvar os dados. Tente novamente.');
-            }
+            alert('Perfil salvo com sucesso!');
+            updateCharts(profileData);
         }
 
         function updateCharts(profileData) {
-            // Atualiza gênero mais assistido
+            // Gênero mais assistido (gráfico de pizza)
             new Chart(document.getElementById('genreChart'), {
                 type: 'pie',
                 data: {
@@ -162,7 +131,7 @@
                 options: { responsive: true }
             });
 
-            // Atualiza quantidade de dramas assistidos
+            // Quantidade de dramas assistidos (gráfico de barras)
             new Chart(document.getElementById('countChart'), {
                 type: 'bar',
                 data: {
@@ -175,6 +144,30 @@
                 },
                 options: { responsive: true }
             });
+
+            // Episódios assistidos ao longo do tempo (gráfico de linha)
+            new Chart(document.getElementById('episodesChart'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    datasets: [{
+                        label: 'Episódios Assistidos',
+                        data: profileData.countWatched.map(c => c * 3),
+                        borderColor: '#f55d9e',
+                        fill: false
+                    }]
+                },
+                options: { responsive: true }
+            });
+        }
+
+        // Carregar dados do perfil se houver
+        const savedProfile = JSON.parse(localStorage.getItem('profileData'));
+        if (savedProfile) {
+            document.getElementById('profileNameDisplay').textContent = savedProfile.name;
+            document.getElementById('lastWatchedDrama').textContent = savedProfile.lastDrama;
+            document.getElementById('favoritesCount').textContent = `${savedProfile.favorites} dramas na lista de favoritos`;
+            updateCharts(savedProfile);
         }
     </script>
 </body>
