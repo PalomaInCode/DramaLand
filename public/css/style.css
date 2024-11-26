@@ -407,12 +407,12 @@ footer {
 }
 
 .box_footer_cabecalho {
-    width: 3vw; /* Largura ainda mais compacta */
-    height: 1vw; /* Menor altura */
+    width: 3vw;
+    height: 1vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 0.3vw; /* Menos espaçamento superior */
+    margin-top: 0.3vw;
 }
 
 footer hr {
@@ -424,8 +424,8 @@ footer hr {
     display: flex;
     justify-content: center; /* Centraliza os ícones */
     align-items: center; /* Alinha verticalmente */
-    width: 100%; /* Garante que ocupe toda a largura disponível */
-    margin-top: 0.0.5vw; /* Reduzido o espaçamento superior */
+    width: 100%;
+    margin-top: 0.0.5vw;
 }
 
 .social_icon {
@@ -449,7 +449,7 @@ footer hr {
     height: 100%;
     color: #ffffff; /* Texto branco */
     font-weight: lighter;
-    margin-top: 1rem; /* Reduzindo o espaçamento superior */
+    margin-top: 1vw; /* Reduzindo o espaçamento superior */
     font-size: 1vw;
 }
 
@@ -553,7 +553,6 @@ footer hr {
 .categorias-dorama-section h3 {
     justify-content: center;
     align-items: center;
-
 }
 
 /* CSS para o grid de categorias */
@@ -561,7 +560,7 @@ footer hr {
     display: grid;
     grid-template-columns: repeat(6, 1fr); /* 6 colunas flexíveis */
     gap: 3vw;
-    padding: 5vw;
+    padding-bottom: 5vw;
 }
 
 .categoria-item-dorama {
@@ -603,25 +602,25 @@ footer hr {
 }
 
 .categoria-item-dorama h3 {
-    font-size: 16px;
+    font-size: 0.8vw;
     color: #333;
     font-weight: bold;
     padding: 1vw;
     position: absolute;
-    bottom: 0;
+    bottom: 0;  
     width: 100%;
     text-align: center;
     color: #fff;
     letter-spacing: 1px;
-    z-index: 2; /* Garante que o título fique acima do overlay */
+    z-index: 2;
 }
 
 .categorias-dorama-section {
-    display: flex; /* Torna o contêiner um flexbox */
-    flex-direction: column; /* Organiza os filhos em coluna */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    padding-top: 8vw; /* Espaço superior ajustado para evitar sobreposição com a navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8vw;
 }
 
 .categorias-dorama-section h4 {
@@ -634,7 +633,7 @@ footer hr {
 .categorias-dorama-section p {
     font-size: 1.2vw; /* Tamanho responsivo do parágrafo */
     color: #555; /* Cor complementar */
-    margin-top: 1vw; /* Espaçamento entre o título e o parágrafo */
+    margin: 2vw; /* Espaçamento entre o título e o parágrafo */
     text-align: center; /* Centraliza o texto */
 }
 
@@ -681,11 +680,10 @@ footer hr {
 
 /* Sessão QUIZ */
 .quiz-container {
-    width: 90%;
-    margin: 50px auto;
+    width: 100%;
     text-align: center;
-    padding-top: 5%;
-    padding-bottom: 25%;
+    padding-top: 10%;
+    padding-bottom: 18vw;
 }
 
 h1 {
@@ -887,38 +885,38 @@ h1 {
     display: fl;
 }
 
-/* Container externo para garantir o comportamento do centro */
+/* Container externo */
 .outer-container {
     display: flex;
-    justify-content: center; /* Alinha horizontalmente ao centro */
-    align-items: center; /* Alinha verticalmente ao centro */
-    height: 100vh; /* Usa 100% da altura da tela */
-    padding-bottom: 20px; /* Para garantir que o footer não sobreponha o conteúdo */
+    justify-content: center;
+    align-items: center;
+    height: 50vw;
+    padding-top: 30vw;
+    padding-bottom: 30vw;
     flex-direction: column;
-    background-color: #f0f0f0; /* Cor de fundo leve para a tela */
+    background-color: #f0f0f0;
   }
   
-  /* Container principal com margem de 20% */
+  /* Container principal */
   .container {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 80%; /* Largura de 80% da tela para a área do quiz */
-    max-width: 700px; /* Limita a largura máxima */
-    margin: 20% auto; /* Margin de 20% em cima e embaixo, e centraliza horizontalmente */
+    width: 60vw;
+    height: 50vw;
+    margin: 5%;
     background-color: #fff;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
     text-align: center;
-    padding: 30px;
+    padding: 3vw;
     box-sizing: border-box;
-    border: 2px solid #e0e0e0; /* Borda suave ao redor */
-    margin-top: 25%;
+    border: 2px solid #e0e0e0;
   }
   
   /* Título */
   h1 {
-    font-size: 36px;
+    font-size: 2vw;
     color: #333;
     margin-bottom: 0.5vw;
   }
@@ -934,36 +932,36 @@ h1 {
   /* Estilo para as perguntas */
   .question {
     font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 1vw;
+    margin-bottom:2vw;
     color: #444;
   }
   
   /* Estilo para as opções */
   .options {
-    margin-bottom: 20px;
+    margin-bottom: 0.9vw;
   }
   
   .option {
     display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: ##333;
+    margin-bottom: 0.9vw;
+    font-size: 1vw;
+    color: #333;
   }
   
   /* Estilo para os botões */
   .button {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 1vw 2vw;
     background-color: #ff61a6; /* Rosa suave */
     color: #fff;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 0.9vw;
     font-weight: 600;
-    border-radius: 30px;
+    border-radius: 1.8vw;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 10px 0;
+    margin: 0.9vw 0;
   }
   
   .button:hover {

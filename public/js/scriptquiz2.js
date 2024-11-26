@@ -232,3 +232,5 @@ function displayQuestion() {
     quizContainer.appendChild(imageElement); // Adiciona a imagem aqui
     quizContainer.appendChild(optionsElement);
   }
+
+  

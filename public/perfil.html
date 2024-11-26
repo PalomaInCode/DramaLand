@@ -6,7 +6,6 @@
     <title>Dashboard Dramaland</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/dashstyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -19,9 +18,7 @@
             <nav>
                 <ul>
                     <li><a href="#" class="active" onclick="changePage('home')">Página Inicial</a></li>
-                    <li><a href="#" onclick="changePage('episodes')">Episódios</a></li>
-                    <li><a href="#" onclick="changePage('favorites')">Favoritos</a></li>
-                    <li><a href="#" onclick="changePage('pending')">Pendentes</a></li>
+                    <li><a href="#" onclick="changePage('profile')">Editar Perfil</a></li>
                     <li><a href="#" onclick="logout()">Sair</a></li>
                 </ul>
             </nav>
@@ -32,96 +29,85 @@
             <!-- Header -->
             <header class="header">
                 <div class="header-left">
-                    <h2>Bem-vinda, Paloma!</h2>
+                    <h2>Bem-vinda, </h2>
                     <input type="text" id="searchInput" placeholder="Buscar seu drama favorito..." oninput="searchDrama()">
                 </div>
-                <div class="profile" onclick="toggleProfile()">
+                <div class="profile" onclick="changePage('profile')">
                     <img id="profilePic" src="https://via.placeholder.com/45" alt="Avatar">
-                    <span>Fã Oficial de Doramas</span>
+                    <span id="profileNameDisplay">Fã Oficial de Doramas</span>
                 </div>
             </header>
 
-            <!-- Content Sections -->
+            <!-- Home Section -->
             <section id="home" class="content-section active">
                 <div class="dashboard-cards">
                     <div class="card">
                         <h3>Último Drama Assistido</h3>
-                        <p>Ep. 10 - A Despedida</p>
+                        <p id="lastWatchedDrama">Ep. 10 - A Despedida</p>
                     </div>
                     <div class="card">
                         <h3>Favoritos</h3>
-                        <p>10 dramas na lista de favoritos</p>
+                        <p id="favoritesCount">10 dramas na lista de favoritos</p>
                     </div>
                     <div class="card">
                         <h3>Próximos Episódios</h3>
-                        <p>Assista o próximo episódio amanhã!</p>
+                        <p id="nextEpisode">Assista o próximo episódio amanhã!</p>
                     </div>
                 </div>
 
                 <!-- Gráficos -->
                 <div class="charts">
                     <div class="chart-container">
-                        <h3>Gênero Mais Assistido (2024)</h3>
+                        <h3>Gênero Mais Assistido</h3>
                         <canvas id="genreChart"></canvas>
                     </div>
                     <div class="chart-container">
-                        <h3>Quantidade de Dramas Assistidos (2024)</h3>
+                        <h3>Quantidade de Dramas Assistidos</h3>
                         <canvas id="countChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <h3>Duração Média dos Dramas (min) (2024)</h3>
-                        <canvas id="durationChart"></canvas> <!-- Novo gráfico para duração média -->
                     </div>
                 </div>
             </section>
 
-            <section id="episodes" class="content-section">
-                <h3>Últimos Episódios Assistidos</h3>
-                <p>Veja os dramas que você acabou de assistir e os próximos episódios.</p>
-            </section>
-
-            <section id="favorites" class="content-section">
-                <h3>Lista de Favoritos</h3>
-                <p>Confira os seus dramas favoritos que você está acompanhando.</p>
-            </section>
-
-            <section id="pending" class="content-section">
-                <h3>Episódios Pendentes</h3>
-                <p>Veja os episódios que ainda não foram assistidos e marque quando terminar.</p>
+            <!-- Profile Section -->
+            <section id="profile" class="content-section">
+                <h3>Editar Perfil</h3>
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label for="profileName">Nome</label>
+                        <input type="text" id="profileName" placeholder="Seu nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastDrama">Último Drama Assistido</label>
+                        <input type="text" id="lastDrama" placeholder="Título do último drama">
+                    </div>
+                    <div class="form-group">
+                        <label for="favorites">Quantidade de Favoritos</label>
+                        <input type="number" id="favorites" placeholder="Número de favoritos">
+                    </div>
+                    <div class="form-group">
+                        <label for="genresWatched">Gêneros Mais Assistidos (separados por vírgula)</label>
+                        <input type="text" id="genresWatched" placeholder="Romance, Comédia, Drama">
+                    </div>
+                    <div class="form-group">
+                        <label for="countWatched">Quantidade de Dramas Assistidos</label>
+                        <input type="text" id="countWatched" placeholder="Número de dramas assistidos por mês">
+                    </div>
+                    <button type="button" onclick="saveProfile()">Salvar Perfil</button>
+                </form>
             </section>
         </main>
     </div>
 
-    <div id="editProfileModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <h2>Editar Perfil</h2>
-            <form id="editProfileForm">
-                <div class="form-group">
-                    <label for="profileName">Nome</label>
-                    <input type="text" id="profileName" value="Paloma Santos" required>
-                </div>
-                <div class="form-group">
-                    <label for="profilePicInput">Alterar Foto</label>
-                    <input type="file" id="profilePicInput" accept="image/*">
-                    <span id="fileName">Nenhum arquivo escolhido</span>
-                </div>
-                <div class="form-actions">
-                    <button type="button" onclick="closeModal()">Cancelar</button>
-                    <button type="submit">Salvar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <script>
+        const apiEndpoint = "https://seu-servidor.com/api/profile"; // Substitua pelo endpoint do seu backend.
+
         function changePage(pageId) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
         }
 
         function logout() {
-            alert("Você foi desconectada!");
+            alert("Você foi desconectado!");
             window.location.href = "login.html";
         }
 
@@ -130,111 +116,66 @@
             console.log("Buscando por:", searchQuery);
         }
 
-        function toggleProfile() {
-            document.getElementById('editProfileModal').style.display = 'block';
+        async function saveProfile() {
+            const profileName = document.getElementById('profileName').value;
+            const lastDrama = document.getElementById('lastDrama').value;
+            const favorites = document.getElementById('favorites').value;
+            const genresWatched = document.getElementById('genresWatched').value.split(',');
+            const countWatched = document.getElementById('countWatched').value.split(',').map(Number);
+
+            const profileData = {
+                name: profileName || 'Fã Oficial de Doramas',
+                lastDrama: lastDrama || 'Nenhum drama assistido',
+                favorites: favorites || 0,
+                genres: genresWatched.map(g => g.trim()),
+                countWatched: countWatched,
+            };
+
+            try {
+                const response = await fetch(apiEndpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(profileData),
+                });
+
+                if (!response.ok) throw new Error('Erro ao salvar os dados no servidor');
+
+                alert('Perfil salvo com sucesso!');
+                updateCharts(profileData);
+            } catch (error) {
+                console.error(error);
+                alert('Ocorreu um erro ao salvar os dados. Tente novamente.');
+            }
         }
 
-        function closeModal() {
-            document.getElementById('editProfileModal').style.display = 'none';
+        function updateCharts(profileData) {
+            // Atualiza gênero mais assistido
+            new Chart(document.getElementById('genreChart'), {
+                type: 'pie',
+                data: {
+                    labels: profileData.genres,
+                    datasets: [{
+                        data: profileData.genres.map(() => Math.floor(Math.random() * 10) + 1),
+                        backgroundColor: ['#f9a8d4', '#f55d9e', '#f1c4d4', '#f2a6c6', '#ed1f90'],
+                    }]
+                },
+                options: { responsive: true }
+            });
+
+            // Atualiza quantidade de dramas assistidos
+            new Chart(document.getElementById('countChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    datasets: [{
+                        label: 'Dramas Assistidos',
+                        data: profileData.countWatched,
+                        backgroundColor: '#f9a8d4',
+                    }]
+                },
+                options: { responsive: true }
+            });
         }
-
-        document.getElementById("editProfileForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const profileName = document.getElementById("profileName").value;
-            const profilePicInput = document.getElementById("profilePicInput");
-            const profilePic = document.getElementById("profilePic");
-
-            // Atualiza o nome do perfil
-            alert("Perfil atualizado com sucesso!");
-
-            // Verifica se foi selecionada uma nova imagem
-            if (profilePicInput.files && profilePicInput.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    profilePic.src = e.target.result; // Altera a foto de perfil
-                };
-                reader.readAsDataURL(profilePicInput.files[0]);
-            }
-
-            closeModal();  // Fecha o modal após salvar
-        });
-
-        document.getElementById("profilePicInput").addEventListener("change", function() {
-            const fileName = this.files.length > 0 ? this.files[0].name : "Nenhum arquivo escolhido";
-            document.getElementById("fileName").textContent = fileName;
-        });
-
-        // Gráficos
-        const genreChart = new Chart(document.getElementById('genreChart'), {
-            type: 'pie',
-            data: {
-                labels: ['Romance', 'Comédia', 'Ação', 'Drama', 'Mistério'],
-                datasets: [{
-                    data: [25, 15, 20, 25, 15],  // Exemplo de quantidade de cada gênero
-                    backgroundColor: ['#f9a8d4', '#f55d9e', '#f1c4d4', '#f2a6c6', '#ed1f90'],
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    }
-                }
-            }
-        });
-
-        const countChart = new Chart(document.getElementById('countChart'), {
-            type: 'bar',
-            data: {
-                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov'],
-                datasets: [{
-                    label: 'Quantidade de Dramas Assistidos',
-                    data: [5, 8, 10, 12, 9, 7, 8, 6, 9, 10, 11], // Dados de exemplo para 2024
-                    backgroundColor: '#f9a8d4',
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        const durationChart = new Chart(document.getElementById('durationChart'), {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov'],
-                datasets: [{
-                    label: 'Duração Média (min)',
-                    data: [60, 65, 70, 55, 50, 68, 72, 64, 78, 82, 74], // Duração média mensal de episódios assistidos
-                    borderColor: '#9b1b62',
-                    fill: false,
-                    tension: 0.1,
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
     </script>
 </body>
 </html>
