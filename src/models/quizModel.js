@@ -1,4 +1,4 @@
-const db = require('../database/db');
+const db = require("../database/config");
 
 // Função para salvar as respostas do quiz no banco de dados
 const saveQuizResult = (userId, quizData) => {

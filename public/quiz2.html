@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DramaLand - Sua Plataforma de Doramas</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body class="quiz">
+<body>
+    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
     <header>
         <a href="index.html">
             <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
@@ -28,12 +29,7 @@
                         <a href="ficcao.html">Ficção</a>
                     </div>
                 </li>
-                <li>
-                    <a href="comunidade.html">Comunidade</a>
-                    <div class="dropdown">
-                        <a href="quiz.html">Quiz</a>
-                    </div>
-                </li>
+                <li><a href="quiz.html">Quiz</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li id="loginLink"><a href="login.html">Login</a></li>
                 <li id="cadastroLink"><a href="cadastro.html" class="active">Cadastro</a></li>
@@ -41,8 +37,7 @@
                 <li id="sairLink" style="display: none;"><a href="#" onclick="sair()">Sair</a></li>
             </ul>
         </nav>
-    </header>      
-
+    </header>     
     <div class="outer-container">
         <div class="container">
           <div class="quiz">
