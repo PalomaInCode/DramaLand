@@ -1,176 +1,392 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Dramaland</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashstyle.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/logo-navegador.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>The Dorama Awards</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <div class="dashboard-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
-                <h1>Dramaland</h1>
+  </head>
+  <body onload="obterDadosGrafico()">
+    <header>
+      <a href="index.html">
+        <img class="logo" src="assets/logo.png" alt="Logo DramaLand" width="200px" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Início</a></li>
+          <li>
+            <a href="categorias.html">Categorias</a>
+            <div class="dropdown">
+              <a href="acao.html">Ação</a>
+              <a href="comedia.html">Comédia</a>
+              <a href="drama.html">Drama</a>
+              <a href="fantasia.html">Fantasia</a>
+              <a href="historico.html">Histórico</a>
+              <a href="misterio.html">Mistério & Suspense</a>
+              <a href="romance.html">Romance</a>
+              <a href="ficcao.html">Ficção</a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="perfil.html" class="active" onclick="changePage('home')">Página Inicial</a></li>
-                    <li><a href="editarPerfil.html" onclick="changePage('profile')">Editar Perfil</a></li>
-                    <li><a href="#" onclick="logout()">Sair</a></li>
-                </ul>
-            </nav>
-        </aside>
+          </li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li id="loginLink"><a href="login.html">Login</a></li>
+          <li id="cadastroLink"><a href="cadastro.html">Cadastro</a></li>
+          <li id="quizLink" style="display: none;"><a href="quiz.html">Quiz</a></li>
+          <li id="perfilLink" style="display: none;"><a href="perfil.html">Perfil</a></li>
+          <li id="sairLink" style="display: none;"><a href="login.html" onclick="sair()">Sair</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Header -->
-            <header class="header">
-                <div class="header-left">
-                    <h2>Bem-vinda, <span id="profileNameDisplay">Fã Oficial de Doramas</span></h2>
-                    <input type="text" id="searchInput" placeholder="Buscar seu drama favorito..." oninput="searchDrama()">
-                </div>
-                <div class="profile" onclick="openPhotoModal()">
-                    <img id="profilePic" src="https://via.placeholder.com/45" alt="Avatar">
-                </div>
-            </header>
-
-            <!-- Home Section -->
-            <section id="home" class="content-section active">
-                <div class="dashboard-cards">
-                    <div class="card">
-                        <h3>Último Dorama Assistido</h3>
-                        <p id="lastWatchedDrama">Ep. 10 - A Despedida</p>
-                    </div>
-                    <div class="card">
-                        <h3>Favoritos</h3>
-                        <p id="favoritesCount">10 doramas na lista</p>
-                    </div>
-                    <div class="card">
-                        <h3>Próximos Episódios</h3>
-                        <p id="nextEpisode">Episódio 12 de True Beauty Pendente</p>
-                    </div>
-                </div>
-
-                <!-- Gráficos -->
-                <div class="charts">
-                    <div class="chart-container">
-                        <h3>Gênero Mais Assistido</h3>
-                        <canvas id="genreChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <h3>Quantidade de Dramas Assistidos</h3>
-                        <canvas id="countChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <h3>Episódios Assistidos ao Longo do Tempo</h3>
-                        <canvas id="episodesChart"></canvas>
-                    </div>
-                </div>
-            </section>
-        </main>
+    <div class="titulos">
+      <h1>MELHORES DORAMAS</h1>
     </div>
 
-    <script>
-        function changePage(pageId) {
-            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
+    <div class="doramas-concorrentes">
+      <div class="dorama" onclick="votar('It’s Okay to Not Be Okay')">
+        <img
+          src="assets/acao.png"
+          alt="It’s Okay to Not Be Okay"
+          width="200px"
+          height="300px"
+        />
+        <p>IT’S OKAY TO NOT BE OKAY</p>
+      </div>
+      <div class="dorama" onclick="votar('Hospital Playlist')">
+        <img
+          src="assets/acao.png"
+          alt="Hospital Playlist"
+          width="200px"
+          height="300px"
+        />
+        <p>HOSPITAL PLAYLIST</p>
+      </div>
+      <div class="dorama" onclick="votar('Beautiful World')">
+        <img
+          src="assets/acao.png"
+          alt="Beautiful World"
+          width="200px"
+          height="300px"
+        />
+        <p>BEAUTIFUL WORLD</p>
+      </div>
+      <div class="dorama" onclick="votar('Extraordinary Attorney Woo')">
+        <img
+          src="assets/acao.png"
+          alt="Extraordinary Attorney Woo"
+          width="200px"
+          height="300px"
+        />
+        <p>EXTRAORDINARY ATTORNEY WOO</p>
+      </div>
+      <div class="dorama" onclick="votar('Round 6')">
+        <img
+          src="assets/acao.png"
+          alt="Round 6"
+          width="200px"
+          height="300px"
+        />
+        <p>ROUND 6</p>
+      </div>
+      <div class="dorama" onclick="votar('Sweet Home')">
+        <img
+          src="assets/acao.png"
+          alt="Sweet Home"
+          width="200px"
+          height="300px"
+        />
+        <p>SWEET HOME</p>
+      </div>
+    </div>
+
+    <div class="grafico-e-kpis">
+      <!-- Gráfico -->
+      <div class="grafico">
+        <canvas id="myCanvas"></canvas>
+      </div>
+      
+      
+      <!-- KPIs dentro da caixa do gráfico -->
+      <div class="kpis">
+        <div class="kpi">
+          <h2>Votos Totais</h2>
+          <p id="totalVotes">0</p>
+        </div>
+        <div class="kpi">
+          <h2>Votos do Vencedor</h2>
+          <p id="winnerVotes">0</p>
+        </div>
+        <div class="kpi">
+          <h2>Favoritismo do Vencedor</h2>
+          <p id="winnerPercentage">0%</p>
+        </div>
+        <div class="kpi">
+          <h2>Dorama com Mais Votos</h2>
+          <p id="topDorama">winnerName</p> <!-- Novo campo para o nome do dorama -->
+        </div>
+      </div>
+    </div>
+    
+    
+    
+<script>
+let myChart;
+
+function votar(nomeDorama) {
+  fetch(`/votos/votar/${nomeDorama}`, {
+    method: "POST",
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log("Voto contabilizado");
+        atualizarGrafico();
+      } else {
+        console.error("Erro na votação ou dorama não encontrado");
+      }
+    })
+    .catch(function (error) {
+      console.error(`Erro ao realizar o voto: ${error.message}`);
+    });
+}
+
+function obterDadosGrafico() {
+  fetch("/votos/ultimos", { cache: "no-store" })
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          plotarGrafico(resposta);
+          calcularKpis(resposta);  // Atualizando as KPIs após os dados do gráfico serem carregados
+        });
+      } else {
+        console.error("Nenhum dado encontrado ou erro na API");
+      }
+    })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+
+function plotarGrafico(resposta) {
+  console.log("iniciando plotagem do gráfico...");
+
+  // Criando estrutura para plotar gráfico de doramas
+  let labels = [
+    "It’s Okay to Not Be Okay",
+    "Hospital Playlist",
+    "Beautiful World",
+    "Extraordinary Attorney Woo",
+    "Round 6",
+    "Sweet Home",
+  ];
+
+  let dados = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Votos por Dorama",
+        data: [],
+        fill: false,
+        backgroundColor: [
+          "rgba(249, 168, 212, 0.2)", // #f9a8d4
+          "rgba(245, 93, 158, 0.2)",  // #f55d9e
+          "rgba(241, 196, 212, 0.2)", // #f1c4d4
+          "rgba(242, 166, 198, 0.2)", // #f2a6c6
+          "rgba(237, 31, 144, 0.2)",  // #ed1f90
+        ],
+        borderColor: [
+          "rgba(249, 168, 212, 1)",  // #f9a8d4
+          "rgba(245, 93, 158, 1)",   // #f55d9e
+          "rgba(241, 196, 212, 1)",  // #f1c4d4
+          "rgba(242, 166, 198, 1)",  // #f2a6c6
+          "rgba(237, 31, 144, 1)",   // #ed1f90
+        ],
+        borderWidth: 1,
+        tension: 0.1,
+      },
+    ],
+  };
+
+  // Inserindo valores dos votos por dorama
+  for (let i = 0; i < resposta.length; i++) {
+    var registro = resposta[i];
+    dados.datasets[0].data.push(registro.quantidade);
+  }
+
+  // Configuração do gráfico de doramas
+  const config = {
+    type: "bar",
+    data: dados,
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: "VOTAÇÃO POR DORAMA",
+          color: "#333",
+          font: {
+            size: 20,
+          },
+        },
+        legend: {
+          display: true,
+          labels: {
+            color: "#333",
+          },
+        },
+      },
+    },
+  };
+
+  // Adicionando gráfico de doramas
+  myChart = new Chart(document.getElementById("myCanvas"), config);
+
+  // Agora, vamos criar o gráfico de gênero
+  plotarGraficoGenero(resposta);
+}
+
+function plotarGraficoGenero(resposta) {
+  let generos = {}; // Objeto para contar os votos por gênero
+
+  // Associar os gêneros dos doramas
+  const generosDorama = {
+    "It’s Okay to Not Be Okay": "Drama",
+    "Hospital Playlist": "Comédia",
+    "Beautiful World": "Drama",
+    "Extraordinary Attorney Woo": "Comédia",
+    "Round 6": "Ação",
+    "Sweet Home": "Terror",
+  };
+
+  // Contabilizar os votos por gênero
+  resposta.forEach((registro) => {
+    const genero = generosDorama[registro.nomeDorama];
+    if (generos[genero]) {
+      generos[genero] += registro.quantidade;
+    } else {
+      generos[genero] = registro.quantidade;
+    }
+  });
+
+  // Criar os dados para o gráfico de gênero
+  let labelsGenero = Object.keys(generos);
+  let votosGenero = Object.values(generos);
+
+  // Configuração do gráfico de gênero
+  const configGenero = {
+    type: "bar",
+    data: {
+      labels: labelsGenero,
+      datasets: [{
+        label: "Votos por Gênero",
+        data: votosGenero,
+        backgroundColor: [
+          "rgba(252, 99, 132, 0.2)",
+          "rgba(85, 99, 255, 0.2)",
+          "rgba(253, 177, 72, 0.2)",
+          "rgba(48, 204, 89, 0.2)"
+        ],
+        borderColor: [
+          "rgba(252, 99, 132, 1)",
+          "rgba(85, 99, 255, 1)",
+          "rgba(253, 177, 72, 1)",
+          "rgba(48, 204, 89, 1)"
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
         }
-
-        function logout() {
-            alert("Você foi desconectado!");
-            window.location.href = "login.html";
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: "VOTOS POR GÊNERO",
+          color: "#333",
+          font: {
+            size: 20,
+          },
+        },
+        legend: {
+          display: false,
         }
+      }
+    }
+  };
 
-        function searchDrama() {
-            const searchQuery = document.getElementById("searchInput").value.toLowerCase();
-            console.log("Buscando por:", searchQuery);
-        }
+  // Adicionando gráfico de gênero
+  let myChartGenero = new Chart(document.getElementById("myCanvasGenero"), configGenero);
+}
 
-        async function saveProfile(event) {
-            event.preventDefault();  // Impede o envio do formulário
+function atualizarGrafico() {
+  fetch("/votos/ultimos", { cache: "no-store" })
+    .then(function (resposta) {
+      if (resposta.ok) {
+        resposta.json().then(function (respostaJSON) {
+          console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
+          console.log("Dados atuais do gráfico:");
 
-            const profileName = document.getElementById('profileName').value;
-            const lastDrama = document.getElementById('lastDrama').value;
-            const favorites = document.getElementById('favorites').value;
-            const genresWatched = document.getElementById('genresWatched').value.split(',');
-            const countWatched = document.getElementById('countWatched').value.split(',').map(Number);
+          myChart.data.datasets[0].data = [];
 
-            const profileData = {
-                name: profileName || 'Fã Oficial de Doramas',
-                lastDrama: lastDrama || 'Nenhum drama assistido',
-                favorites: favorites || 0,
-                genres: genresWatched.map(g => g.trim()),
-                countWatched: countWatched,
-            };
+          for (let i = 0; i < respostaJSON.length; i++) {
+            myChart.data.datasets[0].data.push(respostaJSON[i].quantidade);
+          }
 
-            // Atualiza a exibição de informações no painel
-            document.getElementById('lastWatchedDrama').textContent = profileData.lastDrama;
-            document.getElementById('favoritesCount').textContent = `${profileData.favorites} dramas na lista de favoritos`;
+          myChart.update();
+          calcularKpis(respostaJSON);  // Atualiza as KPIs com os novos dados do gráfico
+        });
+      } else {
+        console.error("Nenhum dado encontrado ou erro na API");
+      }
+    })
+    .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
 
-            // Salva o perfil no localStorage
-            localStorage.setItem('profileData', JSON.stringify(profileData));
+function calcularKpis(resposta) {
+  let totalVotos = 0;
+  let votosVencedor = 0;
+  let nomeVencedor = "";
 
-            alert('Perfil salvo com sucesso!');
-            updateCharts(profileData);
-        }
+  for (let i = 0; i < resposta.length; i++) {
+    totalVotos += resposta[i].quantidade;
 
-        function updateCharts(profileData) {
-            // Gênero mais assistido (gráfico de pizza)
-            new Chart(document.getElementById('genreChart'), {
-                type: 'pie',
-                data: {
-                    labels: profileData.genres,
-                    datasets: [{
-                        data: profileData.genres.map(() => Math.floor(Math.random() * 10) + 1),
-                        backgroundColor: ['#f9a8d4', '#f55d9e', '#f1c4d4', '#f2a6c6', '#ed1f90'],
-                    }]
-                },
-                options: { responsive: true }
-            });
+    // Verificar se esse dorama tem mais votos que o atual vencedor
+    if (resposta[i].quantidade > votosVencedor) {
+      votosVencedor = resposta[i].quantidade;
+      nomeVencedor = resposta[i].dorama; // Correção na atribuição do nome do vencedor
+    }
+  }
 
-            // Quantidade de dramas assistidos (gráfico de barras)
-            new Chart(document.getElementById('countChart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    datasets: [{
-                        label: 'Dramas Assistidos',
-                        data: profileData.countWatched,
-                        backgroundColor: '#f9a8d4',
-                    }]
-                },
-                options: { responsive: true }
-            });
+  // Calcular a porcentagem do vencedor
+  let percentualVencedor = totalVotos > 0 ? ((votosVencedor / totalVotos) * 100).toFixed(2) : 0;
 
-            // Episódios assistidos ao longo do tempo (gráfico de linha)
-            new Chart(document.getElementById('episodesChart'), {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    datasets: [{
-                        label: 'Episódios Assistidos',
-                        data: profileData.countWatched.map(c => c * 3),
-                        borderColor: '#f55d9e',
-                        fill: false
-                    }]
-                },
-                options: { responsive: true }
-            });
-        }
+  // Atualizar as KPIs na página
+  document.getElementById("totalVotes").textContent = totalVotos;
+  document.getElementById("winnerVotes").textContent = nomeVencedor ? `${nomeVencedor}: ${votosVencedor}` : 'Sem votos';
+  document.getElementById("winnerPercentage").textContent = `${percentualVencedor}%`;
+  document.getElementById("topDorama").textContent = nomeVencedor ? nomeVencedor : 'Nenhum vencedor';
+}
 
-        // Carregar dados do perfil se houver
-        const savedProfile = JSON.parse(localStorage.getItem('profileData'));
-        if (savedProfile) {
-            document.getElementById('profileNameDisplay').textContent = savedProfile.name;
-            document.getElementById('lastWatchedDrama').textContent = savedProfile.lastDrama;
-            document.getElementById('favoritesCount').textContent = `${savedProfile.favorites} dramas na lista de favoritos`;
-            updateCharts(savedProfile);
-        }
-
-        
-    </script>
-</body>
-</html>
+</script>
