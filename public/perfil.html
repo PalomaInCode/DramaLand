@@ -113,7 +113,9 @@
     <div class="grafico-e-kpis">
       <!-- Gráfico -->
       <div class="grafico">
-        <canvas id="myCanvas"></canvas>
+        <canvas id="myCanvasDorama"></canvas>
+          <canvas id="myCanvasGenero"></canvas>
+
       </div>
       
       
@@ -141,7 +143,7 @@
     
     
 <script>
-let myChart;
+let myChartDorama, myChartGenero;
 
 function votar(nomeDorama) {
   fetch(`/votos/votar/${nomeDorama}`, {
@@ -225,7 +227,7 @@ function plotarGrafico(resposta) {
   }
 
   // Configuração do gráfico de doramas
-  const config = {
+  const configDorama = {
     type: "bar",
     data: dados,
     options: {
@@ -255,7 +257,7 @@ function plotarGrafico(resposta) {
   };
 
   // Adicionando gráfico de doramas
-  myChart = new Chart(document.getElementById("myCanvas"), config);
+  myChartDorama = new Chart(document.getElementById("myCanvasDorama"), configDorama);
 
   // Agora, vamos criar o gráfico de gênero
   plotarGraficoGenero(resposta);
@@ -335,7 +337,7 @@ function plotarGraficoGenero(resposta) {
   };
 
   // Adicionando gráfico de gênero
-  let myChartGenero = new Chart(document.getElementById("myCanvasGenero"), configGenero);
+  myChartGenero = new Chart(document.getElementById("myCanvasGenero"), configGenero);
 }
 
 function atualizarGrafico() {
@@ -346,13 +348,16 @@ function atualizarGrafico() {
           console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
           console.log("Dados atuais do gráfico:");
 
-          myChart.data.datasets[0].data = [];
-
+          // Atualizar o gráfico de dorama
+          myChartDorama.data.datasets[0].data = [];
           for (let i = 0; i < respostaJSON.length; i++) {
-            myChart.data.datasets[0].data.push(respostaJSON[i].quantidade);
+            myChartDorama.data.datasets[0].data.push(respostaJSON[i].quantidade);
           }
+          myChartDorama.update();
 
-          myChart.update();
+          // Atualizar o gráfico de gênero
+          plotarGraficoGenero(respostaJSON);
+
           calcularKpis(respostaJSON);  // Atualiza as KPIs com os novos dados do gráfico
         });
       } else {
@@ -388,5 +393,4 @@ function calcularKpis(resposta) {
   document.getElementById("winnerPercentage").textContent = `${percentualVencedor}%`;
   document.getElementById("topDorama").textContent = nomeVencedor ? nomeVencedor : 'Nenhum vencedor';
 }
-
 </script>
