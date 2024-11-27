@@ -1,43 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DramaLand - Sua Plataforma de Doramas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-    <script src="js/script.js"></script> <!-- Referência ao arquivo JS -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/logo-navegador.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>The Dorama Awards</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body onload="obterDadosGrafico()">
     <header>
-        <a href="index.html">
-            <img class="logo" src="assets/logo.png" alt="Logo DramaLand">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Início</a></li>
-                <li>
-                    <a href="categorias.html">Categorias</a>
-                    <div class="dropdown">
-                        <a href="acao.html">Ação</a>
-                        <a href="comedia.html">Comédia</a>
-                        <a href="drama.html">Drama</a>
-                        <a href="fantasia.html">Fantasia</a>
-                        <a href="historico.html">Histórico</a>
-                        <a href="misterio.html">Mistério & Suspense</a>
-                        <a href="romance.html">Romance</a>
-                        <a href="ficcao.html">Ficção</a>
-                    </div>
-                </li>
-                <li><a href="sobredoramas.html">Explore</a></li>
-                <li id="loginLink"><a href="login.html">Login</a></li>
-                <li id="cadastroLink"><a href="cadastro.html">Cadastro</a></li>
-                <li id="quizLink" style="display: none;"><a href="quiz.html">Quiz</a></li>
-                <li id="perfilLink" style="display: none;"><a href="perfil.html">Perfil</a></li>
-                <li id="sairLink" style="display: none;"><a href="login.html" onclick="sair()">Sair</a></li>
-            </ul>
-        </nav>
-    </header>  
+      <a href="index.html">
+        <img class="logo" src="assets/logo.png" alt="Logo DramaLand" width="200px" />
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Início</a></li>
+          <li>
+            <a href="categorias.html">Categorias</a>
+            <div class="dropdown">
+              <a href="acao.html">Ação</a>
+              <a href="comedia.html">Comédia</a>
+              <a href="drama.html">Drama</a>
+              <a href="fantasia.html">Fantasia</a>
+              <a href="historico.html">Histórico</a>
+              <a href="misterio.html">Mistério & Suspense</a>
+              <a href="romance.html">Romance</a>
+              <a href="ficcao.html">Ficção</a>
+            </div>
+          </li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li id="loginLink"><a href="login.html">Login</a></li>
+          <li id="cadastroLink"><a href="cadastro.html">Cadastro</a></li>
+          <li id="quizLink" style="display: none;"><a href="quiz.html">Quiz</a></li>
+          <li id="perfilLink" style="display: none;"><a href="perfil.html">Perfil</a></li>
+          <li id="sairLink" style="display: none;"><a href="login.html" onclick="sair()">Sair</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <div class="titulos">
       <h1>MELHORES DORAMAS</h1>
@@ -103,9 +113,7 @@
     <div class="grafico-e-kpis">
       <!-- Gráfico -->
       <div class="grafico">
-        <canvas id="myCanvasDorama"></canvas>
-          <canvas id="myCanvasGenero"></canvas>
-
+        <canvas id="myCanvas"></canvas>
       </div>
       
       
@@ -123,17 +131,13 @@
           <h2>Favoritismo do Vencedor</h2>
           <p id="winnerPercentage">0%</p>
         </div>
-        <div class="kpi">
-          <h2>Dorama com Mais Votos</h2>
-          <p id="topDorama">winnerName</p> <!-- Novo campo para o nome do dorama -->
-        </div>
       </div>
     </div>
     
     
     
 <script>
-let myChartDorama, myChartGenero;
+let myChart;
 
 function votar(nomeDorama) {
   fetch(`/votos/votar/${nomeDorama}`, {
@@ -217,7 +221,7 @@ function plotarGrafico(resposta) {
   }
 
   // Configuração do gráfico de doramas
-  const configDorama = {
+  const config = {
     type: "bar",
     data: dados,
     options: {
@@ -247,7 +251,7 @@ function plotarGrafico(resposta) {
   };
 
   // Adicionando gráfico de doramas
-  myChartDorama = new Chart(document.getElementById("myCanvasDorama"), configDorama);
+  myChart = new Chart(document.getElementById("myCanvas"), config);
 
   // Agora, vamos criar o gráfico de gênero
   plotarGraficoGenero(resposta);
@@ -327,7 +331,7 @@ function plotarGraficoGenero(resposta) {
   };
 
   // Adicionando gráfico de gênero
-  myChartGenero = new Chart(document.getElementById("myCanvasGenero"), configGenero);
+  let myChartGenero = new Chart(document.getElementById("myCanvasGenero"), configGenero);
 }
 
 function atualizarGrafico() {
@@ -338,16 +342,13 @@ function atualizarGrafico() {
           console.log(`Dados recebidos: ${JSON.stringify(respostaJSON)}`);
           console.log("Dados atuais do gráfico:");
 
-          // Atualizar o gráfico de dorama
-          myChartDorama.data.datasets[0].data = [];
+          myChart.data.datasets[0].data = [];
+
           for (let i = 0; i < respostaJSON.length; i++) {
-            myChartDorama.data.datasets[0].data.push(respostaJSON[i].quantidade);
+            myChart.data.datasets[0].data.push(respostaJSON[i].quantidade);
           }
-          myChartDorama.update();
 
-          // Atualizar o gráfico de gênero
-          plotarGraficoGenero(respostaJSON);
-
+          myChart.update();
           calcularKpis(respostaJSON);  // Atualiza as KPIs com os novos dados do gráfico
         });
       } else {
@@ -370,7 +371,7 @@ function calcularKpis(resposta) {
     // Verificar se esse dorama tem mais votos que o atual vencedor
     if (resposta[i].quantidade > votosVencedor) {
       votosVencedor = resposta[i].quantidade;
-      nomeVencedor = resposta[i].dorama; // Correção na atribuição do nome do vencedor
+      nomeVencedor == resposta[i].dorama;
     }
   }
 
@@ -379,8 +380,21 @@ function calcularKpis(resposta) {
 
   // Atualizar as KPIs na página
   document.getElementById("totalVotes").textContent = totalVotos;
-  document.getElementById("winnerVotes").textContent = nomeVencedor ? `${nomeVencedor}: ${votosVencedor}` : 'Sem votos';
+  document.getElementById("winnerVotes").textContent = votosVencedor;
   document.getElementById("winnerPercentage").textContent = `${percentualVencedor}%`;
-  document.getElementById("topDorama").textContent = nomeVencedor ? nomeVencedor : 'Nenhum vencedor';
 }
 </script>
+<footer>
+  <div class="box_footer_cabecalho">
+      <div class="box_footer_redes">
+          <a href="https://www.linkedin.com/in/paloma-santos-dias/" class="social_icon">
+              <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/PalomaInCode" class="social_icon">
+              <i class="fab fa-github"></i>
+          </a>
+      </div>
+  </div>
+  <p>Dev by <a href="sobre.html" class="link-estilizado">Paloma</a></p>
+  <p>© 2024 Dramaland - Todos os direitos reservados.</p>
+</footer>  
