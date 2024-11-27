@@ -654,7 +654,7 @@ footer hr {
 
 .categorias-dorama-section p {
     font-size: 1.2vw; /* Tamanho responsivo do parágrafo */
-    color: #555; /* Cor complementar */
+    color: #333; /* Cor complementar */
     margin: 2vw; /* Espaçamento entre o título e o parágrafo */
     text-align: center; /* Centraliza o texto */
 }
@@ -1170,7 +1170,7 @@ h1 {
 .sobre-section h1 {
     font-size: 3rem;
     font-weight: 600;
-    color: #333;
+    color: #ed1f90;
     margin-bottom: 20px;
     text-align: center;
     text-transform: uppercase;
@@ -1179,7 +1179,7 @@ h1 {
 /* Subtítulo */
 .sobre-section h2 {
     font-size: 2rem;
-    color: #555;
+    color: #ed1f90;
     margin-top: 2.3vw;
     text-align: center;
     font-style: italic;
@@ -1187,7 +1187,7 @@ h1 {
 
 .sobre-section h4 {
     font-size: 2rem;
-    color: #555;
+    color: #ed1f90;
     text-align: center;
     font-style: italic;
 }
@@ -1204,8 +1204,8 @@ h1 {
 .sobre-section p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #555;
-    text-align: justify;
+    color: #333;
+    text-align: center;
     margin-bottom: 30px;
 }
 
@@ -1242,7 +1242,7 @@ h1 {
 }
 
 .sobre-section ul li strong {
-    color: #333;
+    color: #ed1f90;
     font-weight: bold;
 }
 
@@ -1379,7 +1379,7 @@ h1 {
     font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
-    color: #ff6b6b;
+    color: #f55d9e;
 }
 
 .section-description {
@@ -1395,30 +1395,33 @@ h1 {
 }
 
 .reasons-list, .genres-list {
+    text-align: center;
     margin: 20px 0;
     padding: 0;
     list-style: square;
 }
 
 .reasons-list li, .genres-list li {
+    text-align: center;
     margin-bottom: 10px;
+    text-align: center;
 } 
 /* Seção de conteúdo sobre doramas */
-/* Seção de conteúdo sobre doramas */
 .sobre-doramas {
-    background-color: #f9f9f9; /* Cor mais suave de fundo */
-    padding: 60px 30px; /* Amplo espaçamento para dar mais "respiro" */
-    border-radius: 15px; /* Bordas mais suaves */
-    box-shadow: none; /* Sem sombra excessiva */
+    text-align: center;
+    padding: 8vw 0;
+    border-radius: 15px;
     max-width: 1100px;
-    margin: 0 auto; /* Centraliza a seção */
-    text-align: center; /* Centraliza o conteúdo */
+    margin: 0 auto;
+    text-align: center;
+    background-color: transparent;
 }
 
 /* Título principal da seção */
 .section-title {
+    text-align: center; 
     font-size: 2.5rem;
-    color: #222;
+    color: #f55d9e;
     margin-bottom: 20px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1427,6 +1430,7 @@ h1 {
 
 /* Descrição do conteúdo */
 .section-description {
+    text-align: center;     
     font-size: 1.2rem;
     color: #666;
     line-height: 1.8;
@@ -1439,10 +1443,11 @@ h1 {
 
 /* Subtítulos dentro da seção */
 .section-subtitle {
+    text-align: center; 
     font-size: 1.8rem;
     font-weight: 600;
     margin-top: 30px;
-    color: #333;
+    color: #f55d9e;;
     text-align: center;
 }
 
@@ -1462,13 +1467,8 @@ h1 {
 .genres-list li {
     margin-bottom: 15px;
     font-size: 1.1rem;
-    color: #555;
+    color: #333;
     line-height: 1.6;
     padding-left: 25px;
     position: relative;
-}
-
-
-.sobre-doramas {
-    animation: fadeIn 1s ease-out;
 }
