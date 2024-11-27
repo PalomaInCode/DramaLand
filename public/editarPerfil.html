@@ -43,7 +43,7 @@
                 <form id="editProfileForm" onsubmit="saveProfile(event)">
                     <div class="form-group">
                         <label for="profileName">Nome</label>
-                        <input type="text" id="profileName" placeholder="Seu nome">
+                        <input type="text" id="profileName" placeholder="Seu nome" >
                     </div>
                     <div class="form-group">
                         <label for="lastDrama">Último Drama Assistido</label>
@@ -138,6 +138,8 @@
         if (savedProfile) {
             document.getElementById('profileNameDisplay').textContent = savedProfile.name;
         }
+
+        profileName.value = sessionStorage.NOME_USUARIO
     </script>
 </body>
 </html>
